@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import MovieList from './MovieList';
-import { Button, ButtonGroup, Container } from "@mui/material/";
+import { Button, ButtonGroup } from "@mui/material/";
 import HomeIcon from "@mui/icons-material/Home";
 import MovieIcon from "@mui/icons-material/Movie";
 
 function Header() {
   return (
     <>
-    <Container maxWidth="1200px">
     <h1>Movies Watchlist</h1>
     <ButtonGroup
         variant="outlined"
@@ -27,7 +26,6 @@ function Header() {
           </Button>
         </Link>
       </ButtonGroup>
-    </Container>
     </>
   );
 }
