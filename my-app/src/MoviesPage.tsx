@@ -10,9 +10,6 @@ const MoviesPage = () => {
   }, [id]);
 
   const movie = info.find((item)=> parseInt(id)  === item._id)
-  console.log('movie.....', movie)
-  console.log('films',info);
-  console.log("first", id);
 
   return (
     <>

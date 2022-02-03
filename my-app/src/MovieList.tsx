@@ -11,6 +11,14 @@ const MovieList = () => {
     JSON.parse(localStorage.getItem("films")) || []
   );
 
+  function deleteMovie () {
+    setFilms(prevFilms => {
+      const updateFilms = prevFilms.slice(0, prevFilms.length - 1);
+      localStorage.setItem('films', JSON.stringify(updateFilms))
+      return updateFilms
+    })
+  }
+
   return (
     <div className="movie-list">
       {films.map((item) => (
@@ -23,7 +31,7 @@ const MovieList = () => {
             <span><AccessTimeIcon/>{item.duration}</span>
           </div>
           <ButtonGroup variant="outlined" aria-label="outlined button group">
-            <Button>
+            <Button onClick={deleteMovie}>
               <DeleteIcon color="secondary" />
             </Button>
             <Link to={`/movies/${item._id}`}>
