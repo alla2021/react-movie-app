@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import MovieList from './MovieList';
 import { Button, ButtonGroup } from "@mui/material/";
 import HomeIcon from "@mui/icons-material/Home";
 import MovieIcon from "@mui/icons-material/Movie";
+import AddIcon from '@mui/icons-material/Add';
 
 function Header() {
   return (
@@ -23,6 +23,12 @@ function Header() {
           <Button variant="outlined">
            <MovieIcon color="success" />
             Movies
+          </Button>
+        </Link>
+        <Link to="/addmovie">
+          <Button variant="outlined">
+           <AddIcon color="success" />
+            Add movie
           </Button>
         </Link>
       </ButtonGroup>
