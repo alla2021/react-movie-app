@@ -56,3 +56,10 @@ html, body {
     width: 300px;
   }
 }
+
+.form {
+  margin: 20px auto;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
