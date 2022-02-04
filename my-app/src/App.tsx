@@ -9,9 +9,7 @@ import { films } from './data'
 import './scss/main.scss'
 
 const App = () => {
-
   useEffect(() => {
-    // console.log(localStorage.getItem('films'));
     const filmsFromLocalStorage = JSON.parse(localStorage.getItem('films'))
     if(filmsFromLocalStorage == null){
       console.log('all films >>>>', filmsFromLocalStorage )

@@ -1,10 +1,7 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {
   Button,
-  FormGroup,
   TextField,
-  Checkbox,
-  FormControlLabel,
 } from "@mui/material/";
 
 function AddForm() {
@@ -18,8 +15,10 @@ function AddForm() {
 
   const handleAddFilmSubmit = (e) => {
     e.preventDefault();
+    const ls = JSON.parse(localStorage.getItem("films"))
+    console.log(ls);
     let film = {
-      _id: Math.trunc(Math.random() * 1000) + 1,
+      _id: Math.trunc(Math.random() * 100),
       title,
       director,
       duration,
@@ -29,7 +28,7 @@ function AddForm() {
       description,
     }
     setFilms([...films, film])
-    console.log(setFilms);
+    console.log(film);
     setTitle('');
     setDirector('');
     setDuration('');
@@ -37,6 +36,8 @@ function AddForm() {
     setImg('');
     setDescription('');
 
+    localStorage.setItem('films', JSON.stringify([...ls, film]));
+    console.log(films);
   }
 
   return (
