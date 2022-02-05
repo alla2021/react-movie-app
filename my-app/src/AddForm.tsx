@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@mui/material/";
+import { useNavigate } from "react-router-dom";
+import { getMovies, addMovies} from "./movieService";
 
 function AddForm() {
-  const [films, setFilms] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [title, setTitle] = useState("");
   const [director, setDirector] = useState("");
   const [duration, setDuration] = useState("");
   const [price, setPrice] = useState("");
   const [img, setImg] = useState("");
   const [description, setDescription] = useState("");
+  const navigate = useNavigate();
+
+  function handleClickRedirect() {
+    navigate("/movies");
+  }
 
   const handleAddFilmSubmit = (e) => {
     e.preventDefault();
-    const ls = JSON.parse(localStorage.getItem("films"));
-    console.log(ls);
-    let film = {
+    getMovies();
+    let newMovie = {
       _id: Math.trunc(Math.random() * 100),
       title,
       director,
@@ -24,16 +30,9 @@ function AddForm() {
       featured: false,
       description,
     };
-    setFilms([...films, film]);
-    setTitle("");
-    setDirector("");
-    setDuration("");
-    setPrice("");
-    setImg("");
-    setDescription("");
-
-    localStorage.setItem("films", JSON.stringify([...ls, film]));
-    console.log(films);
+    setMovies([...movies, newMovie]);
+    addMovies(newMovie);
+    handleClickRedirect();
   };
 
   return (
@@ -56,6 +55,7 @@ function AddForm() {
         id="filled-basic"
         label="Duration"
         variant="outlined"
+        type="number"
         value={duration}
         onChange={(e) => setDuration(e.target.value)}
       />
@@ -63,6 +63,7 @@ function AddForm() {
         id="filled-basic"
         label="Price"
         variant="outlined"
+        type="number"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
       />

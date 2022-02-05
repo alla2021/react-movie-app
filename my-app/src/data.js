@@ -1,4 +1,4 @@
- const films = [
+ const movies = [
   {
     _id: 1,
     title: "Legend of the Seeker",
@@ -56,4 +56,4 @@
   },
 ]
 
-export {films}
+export {movies}

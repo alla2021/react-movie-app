@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {  useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material/";
@@ -7,9 +7,7 @@ import EditIcon from "@mui/icons-material/Edit";
 const MoviesPage = () => {
   const { id } = useParams();
   const [info, getInfo] = useState([]);
-
   console.log(id);
-
   useEffect(() => {
     getInfo(JSON.parse(localStorage.getItem("films")));
   }, [id]);
@@ -34,7 +32,7 @@ const MoviesPage = () => {
               <div className="movie-details__description">
                 {movie.description}
               </div>
-              <Link to={`/editmovie/${movie._id}`}>
+              <Link to={`/editmovie/${movie.id}`}>
                 <Button>
                   <EditIcon color="success" />
                 </Button>

@@ -1,28 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import Homepage from "./Homepages";
+import Homepage from "./Homepage";
 import MoviePage from "./MoviesPage";
-import Movies from "./Movies";
+import MovieList from "./MovieList";
 import Header from "./Header";
 import AddForm from "./AddForm";
 import EditForm from "./EditForm";
-import { films } from "./data";
+
+import {initMovies} from './movieService'
 import "./scss/main.scss";
 
 const App = () => {
   useEffect(() => {
-    const filmsFromLocalStorage = JSON.parse(localStorage.getItem("films"));
-    if (filmsFromLocalStorage == null) {
-      console.log("all films >>>>", filmsFromLocalStorage);
-      localStorage.setItem("films", JSON.stringify(films));
-    }
+    initMovies()
   });
   return (
     <>
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies" element={<MovieList />} />
         <Route path="/movies/:id" element={<MoviePage />} />
         <Route path="/addmovie" element={<AddForm />} />
         <Route path="/editmovie/:id" element={<EditForm />} />
