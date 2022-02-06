@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, TextField } from "@mui/material/";
 import { useNavigate } from "react-router-dom";
-import { getMovies, addMovies} from "./movieService";
+import { getMovies, addMovies } from "./movieService";
 
 function AddForm() {
   const [movies, setMovies] = useState([]);
