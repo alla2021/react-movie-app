@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import AddForm from "./components/AddForm";
 import EditForm from "./components/EditForm";
 import SignIn from "./components/SignIn";
+import SignUp from "./components/RegisterForm";
 import { initMovies } from "./movieService";
 import "./scss/main.scss";
 
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/addmovie" element={<AddForm />} />
         <Route path="/editmovie/:id" element={<EditForm />} />
         <Route path="/login" element={<SignIn />}></Route>
+        <Route path="/register" element={<SignUp />}></Route>
       </Routes>
     </>
   );
