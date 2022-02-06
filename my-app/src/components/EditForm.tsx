@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { Button, TextField } from "@mui/material/";
-import { getMovies } from "./movieService";
+import { getMovies } from "../movieService";
 
 function EditForm() {
   const { id } = useParams();
@@ -21,9 +21,15 @@ function EditForm() {
   const handleUpdateMovieItem = (e) => {
     e.preventDefault();
     console.log(e.target.value);
-    let newMovie = {
-      title
-    }
+    // let newMovie = {
+    //   title,
+      // director,
+      // duration,
+      // price,
+      // img,
+      // description,
+    // };
+
   };
 
   return (
@@ -32,8 +38,9 @@ function EditForm() {
       <form className="form" onClick={handleUpdateMovieItem}>
       <TextField
         id="filled-basic"
+        required
         variant="outlined"
-        value={editMovie.title}
+        // value={editMovie.title}
         onChange={(e) => setTitle(e.target.value)}
       />
       {/* <TextField
@@ -41,12 +48,14 @@ function EditForm() {
         label="Director"
         variant="outlined
         value={director}
+        required
         onChange={(e) => setDirector(e.target.value)}
       />
       <TextField
         id="filled-basic"
         label="Duration"
         variant="outlined"
+        required
         type="number"
         value={duration}
         onChange={(e) => setDuration(e.target.value)}
@@ -55,6 +64,7 @@ function EditForm() {
         id="filled-basic"
         label="Price"
         variant="outlined"
+        required
         type="number"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
@@ -62,13 +72,14 @@ function EditForm() {
       <TextField
         id="filled-basic"
         label="Image"
+        required
         variant="outlined"
         value={img}
         onChange={(e) => setImg(e.target.value)}
       />
       <TextField
         id="filled-basic"
-        label="Description"
+        required
         variant="outlined"
         value={description}
         onChange={(e) => setDescription(e.target.value)}

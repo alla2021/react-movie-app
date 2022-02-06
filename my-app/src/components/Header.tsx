@@ -4,6 +4,7 @@ import { Button, ButtonGroup, Container, Typography } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import MovieIcon from "@mui/icons-material/Movie";
 import AddIcon from "@mui/icons-material/Add";
+import LoginIcon from '@mui/icons-material/Login';
 
 function Header() {
   return (
@@ -33,6 +34,9 @@ function Header() {
               <AddIcon color="success" />
               Add movie
             </Button>
+          </Link>
+          <Link to="/login">
+           <LoginIcon/>
           </Link>
         </ButtonGroup>
       </Container>

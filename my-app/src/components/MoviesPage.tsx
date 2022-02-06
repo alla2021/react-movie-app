@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material/";
 import EditIcon from "@mui/icons-material/Edit";
-import { getMovies } from "./movieService";
+import { getMovies } from "../movieService";
 
 const MoviesPage = () => {
   const { id } = useParams();

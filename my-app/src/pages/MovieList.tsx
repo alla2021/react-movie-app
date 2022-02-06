@@ -5,8 +5,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ReadMoreIcon from "@mui/icons-material/ReadMore";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonIcon from "@mui/icons-material/Person";
-import { getMovies } from "./movieService";
-import { IMovie } from "./types";
+import { getMovies } from "../movieService";
+import { IMovie } from "../types";
 
 const MovieList = () => {
   const [films, setFilms] = useState<IMovie[]>(getMovies());
