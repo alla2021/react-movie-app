@@ -6,7 +6,7 @@ const Homepage = () => {
     <>
       <Box>
         <Typography align="center" variant="h2">
-          Movies Watchlist
+          Movies Watchlist/Home
         </Typography>
       </Box>
 

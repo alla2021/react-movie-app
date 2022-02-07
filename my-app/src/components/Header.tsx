@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, ButtonGroup, Container, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import HomeIcon from "@mui/icons-material/Home";
 import MovieIcon from "@mui/icons-material/Movie";
 import AddIcon from "@mui/icons-material/Add";
-import LoginIcon from '@mui/icons-material/Login';
+import LoginIcon from "@mui/icons-material/Login";
 
 function Header() {
   return (
@@ -13,32 +15,32 @@ function Header() {
         <Typography align="center" variant="h1">
           Movies Watchlist
         </Typography>
-        <ButtonGroup
-          variant="outlined"
-          aria-label="outlined primary button group"
-        >
-          <Link to="/">
-            <Button variant="outlined">
+        <Grid container fontSize='20px'>
+          <Grid item xs={3}>
+            <Link to="/">
               <HomeIcon color="success" />
               Home
-            </Button>
-          </Link>
-          <Link to="/movies">
-            <Button variant="outlined">
+            </Link>
+          </Grid>
+          <Grid item xs={3}>
+            <Link to="/movies">
               <MovieIcon color="success" />
               Movies
-            </Button>
-          </Link>
-          <Link to="/addmovie">
-            <Button variant="outlined">
+            </Link>
+          </Grid>
+          <Grid item xs={3}>
+            <Link to="/addmovie">
               <AddIcon color="success" />
               Add movie
-            </Button>
-          </Link>
-          <Link to="/login">
-           <LoginIcon/>
-          </Link>
-        </ButtonGroup>
+            </Link>
+          </Grid>
+          <Grid item xs={3}>
+            <Link to="/login">
+              <LoginIcon />
+              Sign in
+            </Link>
+          </Grid>
+        </Grid>
       </Container>
     </>
   );

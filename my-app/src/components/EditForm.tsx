@@ -7,16 +7,15 @@ function EditForm() {
   const { id } = useParams();
   const [movie, setMovies] = useState([]);
   const [title, setTitle] = useState("");
-
-  console.log('movie id>>>',id);
   
   useEffect(() => {
-    const filmsFromLocalStorage = setMovies(getMovies());
-    console.log(filmsFromLocalStorage);
+    const filmsFromLocalStorage = getMovies();
+    console.log('get', filmsFromLocalStorage);
+    const editMovie = filmsFromLocalStorage.find(
+      (item) => parseInt(id) === item._id
+    );
+    setTitle(editMovie.title);
   }, [id]);
-
-  const editMovie = movie.find((item) => parseInt(id) === item._id);
-  console.log('editMovie', editMovie);
 
   const handleUpdateMovieItem = (e) => {
     e.preventDefault();
@@ -40,7 +39,7 @@ function EditForm() {
         id="filled-basic"
         required
         variant="outlined"
-        // value={editMovie.title}
+        value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       {/* <TextField
