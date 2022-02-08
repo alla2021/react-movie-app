@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import MoviePage from "./components/MoviesPage";
@@ -12,9 +12,14 @@ import { initMovies } from "./movieService";
 import "./scss/main.scss";
 
 const App = () => {
+  // const [login, setLogin] = useState('');
+  // const [password, setPasword] = useState('');
+  // const [isLoggedIn, setLoggedIn] = useState(false)
+
   useEffect(() => {
     initMovies();
   });
+
   return (
     <>
       <Header />

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
 import HomeIcon from "@mui/icons-material/Home";
 import MovieIcon from "@mui/icons-material/Movie";
 import AddIcon from "@mui/icons-material/Add";
