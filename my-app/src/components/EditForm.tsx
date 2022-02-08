@@ -6,7 +6,18 @@ import { getMovies } from "../movieService";
 function EditForm() {
   const { id } = useParams();
   const [movie, setMovies] = useState([]);
-  const [title, setTitle] = useState("");
+  const [formData, setFormData] = useState({
+    title: "",
+    director: "",
+    duration: "", 
+    price: "",
+    img: "", 
+    description: "", 
+  })
+
+  // function handleClickRedirect() {
+  //   navigate("/movies");
+  // }
   
   useEffect(() => {
     const filmsFromLocalStorage = getMovies();
@@ -14,41 +25,32 @@ function EditForm() {
     const editMovie = filmsFromLocalStorage.find(
       (item) => parseInt(id) === item._id
     );
-    setTitle(editMovie.title);
+    setFormData(editMovie);
   }, [id]);
 
   const handleUpdateMovieItem = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-    // let newMovie = {
-    //   title,
-      // director,
-      // duration,
-      // price,
-      // img,
-      // description,
-    // };
-
+    console.log(formData);
+    console.log('all',getMovies())
   };
 
   return (
     <div>
-      <h3>Edit movie</h3>
       <form className="form" onClick={handleUpdateMovieItem}>
       <TextField
         id="filled-basic"
         required
         variant="outlined"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        value={formData.title}
+        onChange={(e) => setFormData({...formData, title: e.target.value})} 
       />
-      {/* <TextField
+      <TextField
         id="filled-basic"
         label="Director"
-        variant="outlined
-        value={director}
+        variant="outlined"
+        value={formData.director}
         required
-        onChange={(e) => setDirector(e.target.value)}
+        onChange={(e) => setFormData({...formData, director: e.target.value})}
       />
       <TextField
         id="filled-basic"
@@ -56,8 +58,8 @@ function EditForm() {
         variant="outlined"
         required
         type="number"
-        value={duration}
-        onChange={(e) => setDuration(e.target.value)}
+        value={formData.duration}
+        onChange={(e) => setFormData({...formData, duration: e.target.value})}
       />
       <TextField
         id="filled-basic"
@@ -65,24 +67,24 @@ function EditForm() {
         variant="outlined"
         required
         type="number"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
+        value={formData.price}
+        onChange={(e) => setFormData({...formData, price: e.target.value})}
       />
       <TextField
         id="filled-basic"
         label="Image"
         required
         variant="outlined"
-        value={img}
-        onChange={(e) => setImg(e.target.value)}
+        value={formData.img}
+        onChange={(e) => setFormData({...formData, img: e.target.value})}
       />
       <TextField
         id="filled-basic"
         required
         variant="outlined"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      /> */}
+        value={formData.description}
+        onChange={(e) => setFormData({...formData, description: e.target.value})}
+      />
         <Button variant="contained" type="submit">
           Edit movie
         </Button>
