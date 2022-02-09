@@ -33,8 +33,9 @@ function EditForm() {
   const handleUpdateMovieItem = (e) => {
     e.preventDefault();
     console.log(formData);
+    const movies = getMovies();
     // updateMovies(formData)
-    localStorage.setItem('movies', JSON.stringify([formData]));
+    localStorage.setItem('movies', JSON.stringify([...movies, formData]));
   };
 
   return (
