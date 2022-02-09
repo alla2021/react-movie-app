@@ -38,10 +38,9 @@ export default function Login() {
       login,
       password
     }
-    setUserInfo([obj])
-    console.log(user)
+    setUserInfo([...user, obj])
   }
-
+  console.log(user)
   const navigate = useNavigate();
   function handleClickRedirect() {
     navigate("/register");

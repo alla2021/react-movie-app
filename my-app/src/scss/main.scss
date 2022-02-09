@@ -20,6 +20,8 @@ html, body {
     margin: 0 20px;
     position: relative;
     margin-top: 20px;
+    min-width: 300px;
+    min-height: 400px;
   }
 
   &__price {

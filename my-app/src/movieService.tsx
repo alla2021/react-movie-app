@@ -5,7 +5,7 @@ export function getMovies(){
 }
 
 export function addMovies(newMovie) {
-  const movies = JSON.parse(localStorage.getItem("movies")) || [];
+  const movies = JSON.parse(localStorage.getItem("movies"));
   localStorage.setItem("movies", JSON.stringify([...movies, newMovie]))
 }
 
@@ -18,11 +18,11 @@ export function initMovies() {
 }
 
 
-export function updateMovies(item) {
-  const filmsFromLocalStorage = getMovies();
-  if (filmsFromLocalStorage != null) {
-    console.log("all films >>>>", filmsFromLocalStorage);
-    localStorage.setItem("movies", JSON.stringify(item));
-  }
-}
+// export function updateMovies(item) {
+//   const filmsFromLocalStorage = getMovies();
+//   if (filmsFromLocalStorage != null) {
+//     console.log("all films >>>>", filmsFromLocalStorage);
+//     localStorage.setItem("movies", JSON.stringify(item));
+//   }
+// }
 
