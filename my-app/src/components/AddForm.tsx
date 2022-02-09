@@ -17,7 +17,7 @@ function AddForm() {
     navigate("/movies");
   }
 
-  const handleAddFilmSubmit = (e) => {
+  const handleAddFilmSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     getMovies();
     let newMovie = {

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,7 +14,12 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
 const theme = createTheme();
 
-export default function SignUp() {
+export default function RegisterForm() {
+  const [user, setUserInfo] = useState([]);
+  // const [login, setLogin] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [lastName, setLastName] = useState('');
+  // const [firstName, setFirstName] = useState('');
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -25,6 +31,18 @@ export default function SignUp() {
       lastName: data.get('lastName'),
     });
   };
+
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   let obj = {
+  //     login,
+  //     password,
+  //     lastName,
+  //     firstName
+  //   }
+  //   setUserInfo([...user, obj])
+  //   console.log(user)
+  // }
 
   const navigate = useNavigate();
   function handleClickRedirect() {
@@ -58,7 +76,9 @@ export default function SignUp() {
                   fullWidth
                   id="firstName"
                   label="First Name"
+                  // value={firstName}
                   autoFocus
+                  // onChange={(e) => setFirstName(e.target.value )}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -68,6 +88,8 @@ export default function SignUp() {
                   id="lastName"
                   label="Last Name"
                   name="lastName"
+                  // value={lastName}
+                  // onChange={(e) => setLastName(e.target.value )}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -77,6 +99,8 @@ export default function SignUp() {
                   id="email"
                   label="Email Address"
                   name="email"
+                  // value={login}
+                  // onChange={(e) => setLogin(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -87,6 +111,8 @@ export default function SignUp() {
                   label="Password"
                   type="password"
                   id="password"
+                  // value={password}
+                  // onChange={(e) => setPassword(e.target.value)}
                 />
               </Grid>
             </Grid>

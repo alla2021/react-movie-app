@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import {
   Grid,
   Box,
@@ -17,15 +18,29 @@ import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 
-export default function SignIn() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
+export default function Login() {
+  const [user, setUserInfo] = useState([]);
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   console.log({
+  //     email: data.get("email"),
+  //     password: data.get("password"),
+  //   });
+  // };
+
+  const handleSubmit =(e: React.FormEvent<HTMLFormElement>)=> {
+    e.preventDefault();
+    let obj = {
+      login,
+      password
+    }
+    setUserInfo([obj])
+    console.log(user)
+  }
 
   const navigate = useNavigate();
   function handleClickRedirect() {
@@ -55,6 +70,7 @@ export default function SignIn() {
             onSubmit={handleSubmit}
             noValidate
             sx={{ mt: 1 }}
+            
           >
             <TextField
               margin="normal"
@@ -64,7 +80,8 @@ export default function SignIn() {
               label="Email Address"
               name="email"
               autoFocus
-              // value={login}
+              value={login}
+              onChange={(e) => setLogin(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -74,7 +91,8 @@ export default function SignIn() {
               label="Password"
               type="password"
               id="password"
-              // value={password}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
 
             <Button

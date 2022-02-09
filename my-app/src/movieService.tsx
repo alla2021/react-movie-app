@@ -17,3 +17,12 @@ export function initMovies() {
   }
 }
 
+
+export function updateMovies(item) {
+  const filmsFromLocalStorage = getMovies();
+  if (filmsFromLocalStorage != null) {
+    console.log("all films >>>>", filmsFromLocalStorage);
+    localStorage.setItem("movies", JSON.stringify(item));
+  }
+}
+

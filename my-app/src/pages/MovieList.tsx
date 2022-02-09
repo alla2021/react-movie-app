@@ -10,6 +10,7 @@ import { IMovie } from "../types";
 
 const MovieList = () => {
   const [films, setFilms] = useState<IMovie[]>(getMovies());
+  console.log('ff',films);
 
   function deleteMovie() {
     setFilms((prevFilms) => {

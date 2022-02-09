@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Button, TextField } from "@mui/material/";
-import { getMovies } from "../movieService";
+import { getMovies, updateMovies } from "../movieService";
 import { useNavigate } from "react-router-dom";
 import { IMovie } from "../types";
 
@@ -18,7 +18,7 @@ function EditForm() {
 
   const navigate = useNavigate();
   function handleClickRedirect() {
-    navigate("/movies");
+    navigate("/home");
   }
 
   useEffect(() => {
@@ -33,8 +33,8 @@ function EditForm() {
   const handleUpdateMovieItem = (e) => {
     e.preventDefault();
     console.log(formData);
-    localStorage.setItem('movies', JSON.stringify(formData));
-    
+    updateMovies(formData)
+    // localStorage.setItem('movies', JSON.stringify(formData));
   };
 
   return (
