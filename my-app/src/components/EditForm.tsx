@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Button, TextField } from "@mui/material/";
-import { getMovies} from "../movieService";
+import { getMovies } from "../movieService";
 import { useNavigate } from "react-router-dom";
 import { IMovie } from "../types";
 
@@ -18,7 +18,7 @@ function EditForm() {
 
   const navigate = useNavigate();
   function handleClickRedirect() {
-    navigate("/home");
+    navigate("/movies");
   }
 
   useEffect(() => {
@@ -30,23 +30,31 @@ function EditForm() {
     setFormData(editMovie);
   }, [id]);
 
-  const handleUpdateMovieItem = (e) => {
+  const handleUpdateMovieItem = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
     const movies = getMovies();
-    // updateMovies(formData)
-    localStorage.setItem('movies', JSON.stringify([...movies, formData]));
+    let movieToEditIndex = movies.findIndex(
+      (item) => parseInt(id) === item._id
+    );
+    movies[movieToEditIndex] = {
+      ...movies[movieToEditIndex],
+      ...formData,
+      duration: Number(formData.duration),
+      price: Number(formData.price),
+    };
+    localStorage.setItem("movies", JSON.stringify([...movies]));
+    handleClickRedirect();
   };
 
   return (
     <div>
-      <form className="form" onClick={handleUpdateMovieItem}>
+      <form className="form" onSubmit={handleUpdateMovieItem}>
         <TextField
           id="filled-basic"
           required
           variant="outlined"
           value={formData.title}
-          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+          onChange={(e) => setFormData({ ...formData, title: e.target.value})}
         />
         <TextField
           id="filled-basic"
@@ -55,7 +63,7 @@ function EditForm() {
           value={formData.director}
           required
           onChange={(e) =>
-            setFormData({ ...formData, director: e.target.value })
+            setFormData({ ...formData, director: e.target.value})
           }
         />
         <TextField
@@ -66,7 +74,7 @@ function EditForm() {
           type="number"
           value={formData.duration}
           onChange={(e) =>
-            setFormData({ ...formData, duration: e.target.value })
+            setFormData({ ...formData, duration: e.target.value})
           }
         />
         <TextField
@@ -84,7 +92,7 @@ function EditForm() {
           required
           variant="outlined"
           value={formData.img}
-          onChange={(e) => setFormData({ ...formData, img: e.target.value })}
+          onChange={(e) => setFormData({ ...formData, img: e.target.value})}
         />
         <TextField
           id="filled-basic"
@@ -92,7 +100,7 @@ function EditForm() {
           variant="outlined"
           value={formData.description}
           onChange={(e) =>
-            setFormData({ ...formData, description: e.target.value })
+            setFormData({ ...formData, description: e.target.value})
           }
         />
         <Button variant="contained" type="submit">
