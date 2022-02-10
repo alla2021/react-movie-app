@@ -15,11 +15,7 @@ function EditForm() {
     img: "",
     description: "",
   });
-
   const navigate = useNavigate();
-  function handleClickRedirect() {
-    navigate("/movies");
-  }
 
   useEffect(() => {
     const filmsFromLocalStorage = getMovies();
@@ -43,7 +39,7 @@ function EditForm() {
       price: Number(formData.price),
     };
     localStorage.setItem("movies", JSON.stringify([...movies]));
-    handleClickRedirect();
+    navigate("/movies");
   };
 
   return (
@@ -54,7 +50,7 @@ function EditForm() {
           required
           variant="outlined"
           value={formData.title}
-          onChange={(e) => setFormData({ ...formData, title: e.target.value})}
+          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         />
         <TextField
           id="filled-basic"
@@ -63,7 +59,7 @@ function EditForm() {
           value={formData.director}
           required
           onChange={(e) =>
-            setFormData({ ...formData, director: e.target.value})
+            setFormData({ ...formData, director: e.target.value })
           }
         />
         <TextField
@@ -74,7 +70,7 @@ function EditForm() {
           type="number"
           value={formData.duration}
           onChange={(e) =>
-            setFormData({ ...formData, duration: e.target.value})
+            setFormData({ ...formData, duration: e.target.value })
           }
         />
         <TextField
@@ -92,7 +88,7 @@ function EditForm() {
           required
           variant="outlined"
           value={formData.img}
-          onChange={(e) => setFormData({ ...formData, img: e.target.value})}
+          onChange={(e) => setFormData({ ...formData, img: e.target.value })}
         />
         <TextField
           id="filled-basic"
@@ -100,7 +96,7 @@ function EditForm() {
           variant="outlined"
           value={formData.description}
           onChange={(e) =>
-            setFormData({ ...formData, description: e.target.value})
+            setFormData({ ...formData, description: e.target.value })
           }
         />
         <Button variant="contained" type="submit">

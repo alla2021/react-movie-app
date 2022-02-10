@@ -15,13 +15,17 @@ import {
 } from "@mui/material/";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useNavigate } from "react-router-dom";
-
 const theme = createTheme();
 
-export default function Login() {
+// interface Props {
+//   setIsLoggedIn: Dispatch<SetStateAction<boolean>>,
+// }
+
+const Login =()=> {
   const [user, setUserInfo] = useState([]);
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); 
 
   // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
   //   event.preventDefault();
@@ -32,6 +36,7 @@ export default function Login() {
   //   });
   // };
 
+
   const handleSubmit =(e: React.FormEvent<HTMLFormElement>)=> {
     e.preventDefault();
     let obj = {
@@ -40,11 +45,8 @@ export default function Login() {
     }
     setUserInfo([...user, obj])
   }
-  console.log(user)
-  const navigate = useNavigate();
-  function handleClickRedirect() {
-    navigate("/register");
-  }
+
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -104,7 +106,7 @@ export default function Login() {
             </Button>
             <Grid container>
               <Grid item>
-                <Link onClick={handleClickRedirect}>
+                <Link onClick={() => navigate("/register")}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
@@ -115,3 +117,6 @@ export default function Login() {
     </ThemeProvider>
   );
 }
+
+
+export default Login

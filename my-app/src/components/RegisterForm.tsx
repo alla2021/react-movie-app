@@ -1,50 +1,38 @@
-import * as React from 'react';
-import { useState } from "react";
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import * as React from "react";
+import { useState, useEffect } from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 const theme = createTheme();
 
 export default function RegisterForm() {
   const [users, setUserInfo] = useState([]);
+  const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-      firstName: data.get('firstName'),
-      lastName: data.get('lastName'),
-    });
     const user = {
-      email: data.get('email'),
-      password: data.get('password'),
-      firstName: data.get('firstName'),
-      lastName: data.get('lastName'),
-    }
-    setUserInfo([...users, user])
-    localStorage.setItem("users", JSON.stringify([...users, user]))
-    handleClickRedirectAfterReg()
+      _id: Math.trunc(Math.random() * 100),
+      email: data.get("email"),
+      password: data.get("password"),
+      firstName: data.get("firstName"),
+      lastName: data.get("lastName"),
+      isAdmin: false,
+    };
+    setUserInfo([...users, user]);
+    localStorage.setItem("users", JSON.stringify([...users, user]));
   };
-
-  const navigate = useNavigate();
-  function handleClickRedirect() {
-    navigate("/login");
-  }
-
-  function handleClickRedirectAfterReg() {
-    navigate("/home");
-  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -53,18 +41,23 @@ export default function RegisterForm() {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -73,9 +66,7 @@ export default function RegisterForm() {
                   fullWidth
                   id="firstName"
                   label="First Name"
-                  // value={firstName}
                   autoFocus
-                  // onChange={(e) => setFirstName(e.target.value )}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -85,8 +76,6 @@ export default function RegisterForm() {
                   id="lastName"
                   label="Last Name"
                   name="lastName"
-                  // value={lastName}
-                  // onChange={(e) => setLastName(e.target.value )}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -96,8 +85,6 @@ export default function RegisterForm() {
                   id="email"
                   label="Email Address"
                   name="email"
-                  // value={login}
-                  // onChange={(e) => setLogin(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -108,8 +95,6 @@ export default function RegisterForm() {
                   label="Password"
                   type="password"
                   id="password"
-                  // value={password}
-                  // onChange={(e) => setPassword(e.target.value)}
                 />
               </Grid>
             </Grid>
@@ -123,7 +108,7 @@ export default function RegisterForm() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link onClick={handleClickRedirect}>
+                <Link onClick={()=>navigate("/login")}>
                   Already have an account? Sign in
                 </Link>
               </Grid>
