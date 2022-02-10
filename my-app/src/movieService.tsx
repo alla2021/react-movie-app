@@ -17,7 +17,5 @@ export function initMovies() {
   }
 }
 
-// function updateMovie() {
-//   localStorage.setItem("movies", JSON.stringify([formData]));
-// }
+
 

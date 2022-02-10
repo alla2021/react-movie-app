@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,11 +15,7 @@ import { useNavigate } from "react-router-dom";
 const theme = createTheme();
 
 export default function RegisterForm() {
-  const [user, setUserInfo] = useState([]);
-  // const [login, setLogin] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [lastName, setLastName] = useState('');
-  // const [firstName, setFirstName] = useState('');
+  const [users, setUserInfo] = useState([]);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -30,23 +26,24 @@ export default function RegisterForm() {
       firstName: data.get('firstName'),
       lastName: data.get('lastName'),
     });
+    const user = {
+      email: data.get('email'),
+      password: data.get('password'),
+      firstName: data.get('firstName'),
+      lastName: data.get('lastName'),
+    }
+    setUserInfo([...users, user])
+    localStorage.setItem("users", JSON.stringify([...users, user]))
+    handleClickRedirectAfterReg()
   };
-
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   let obj = {
-  //     login,
-  //     password,
-  //     lastName,
-  //     firstName
-  //   }
-  //   setUserInfo([...user, obj])
-  //   console.log(user)
-  // }
 
   const navigate = useNavigate();
   function handleClickRedirect() {
     navigate("/login");
+  }
+
+  function handleClickRedirectAfterReg() {
+    navigate("/home");
   }
 
   return (
