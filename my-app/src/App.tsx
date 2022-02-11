@@ -24,7 +24,6 @@ console.log(user)
 
   useEffect(() => {
     initMovies();
-   
   },[]);
 
 

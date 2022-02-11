@@ -27,7 +27,7 @@ export default function RegisterForm() {
       password: data.get("password"),
       firstName: data.get("firstName"),
       lastName: data.get("lastName"),
-      auth: true,
+      auth: false,
     };
     setUserInfo([...users, user]);
     localStorage.setItem("users", JSON.stringify([...users, user]));
