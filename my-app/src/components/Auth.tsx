@@ -1,10 +1,1 @@
-import React from 'react';
-
-function Auth() {
-  return (
-    <div>Auth</div>
-  )
-}
-
-
-export default Auth
+import React, {useState} from 'react';

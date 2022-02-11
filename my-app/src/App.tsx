@@ -11,21 +11,15 @@ import RegisterForm from "./components/RegisterForm";
 import { initMovies } from "./movieService";
 import "./scss/main.scss";
 import { useNavigate } from "react-router-dom";
-import UserProfile from "./components/UserProfile";
 
 const App = () => {
-const [isAuth, setAuth] = useState(false);
+// const [isAuth, setAuth] = useState(false);
+const [user, setUserInfo] = useState([]);
 
   useEffect(() => {
     initMovies();
   });
 
-  // const checkUser = () => {
-  //   const user = JSON.parse(localStorage.getItem("user"));
-  //   console.log(user, 'ssss')
-  //   user.isAdmin ? setAuth(true) : setAuth(false)
-  // }
-  
   return (
     <>
       <Header />
@@ -33,9 +27,9 @@ const [isAuth, setAuth] = useState(false);
         <Route path="/" element={<Homepage />} />
         <Route path="/movies" element={<MovieList />} />
         <Route path="/movies/:id" element={<MoviePage />} />
-        <Route path="/addmovie" element={isAuth ? <AddForm />:<Login/> } />
-        <Route path="/editmovie/:id" element={isAuth ? (<EditForm />) : <Login />} /> 
-        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/addmovie" element={ <AddForm />} />
+        <Route path="/editmovie/:id" element={<EditForm />} /> 
+        <Route path="/login" element={<Login user={user} setUserInfo={setUserInfo}/>}></Route>
         <Route path="/register" element={<RegisterForm />}></Route>
       </Routes>
     </>

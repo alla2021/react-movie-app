@@ -24,11 +24,9 @@ import { useTheme } from "@emotion/react";
 //   password: string;
 // }
 
-const Login = () => {
-  const [user, setUserInfo] = useState([]);
+const Login = ({user, setUserInfo}) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  // const [isAuth, setAuth] = useState(false);
   const navigate = useNavigate();
   const theme = createTheme();
 
@@ -47,7 +45,7 @@ const Login = () => {
       (item) => user.email === item.email && user.password === item.password
     );
     if (userVerify) {
-      userVerify.isAdmin = true;
+      userVerify.loggedIn = true;
       console.log("userVerify>>>>", userVerify);
       localStorage.setItem("user", JSON.stringify(userVerify));
     } else {
