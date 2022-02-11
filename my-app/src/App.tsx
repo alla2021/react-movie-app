@@ -20,13 +20,7 @@ const [isAuth, setAuth] = useState(false);
 console.log(isAdmin)
   useEffect(() => {
     initMovies();
-    
   });
-
-
-
-
-
   return (
     <>
       <Header />

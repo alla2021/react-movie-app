@@ -17,5 +17,7 @@ export function initMovies() {
   }
 }
 
-
+export function getUsers(){
+  return JSON.parse(localStorage.getItem("users"));
+}
 

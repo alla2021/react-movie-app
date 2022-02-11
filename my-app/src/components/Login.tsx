@@ -15,38 +15,31 @@ import {
 } from "@mui/material/";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useNavigate } from "react-router-dom";
+import { getUsers } from "../movieService";
 const theme = createTheme();
 
-// interface Props {
-//   setIsLoggedIn: Dispatch<SetStateAction<boolean>>,
-// }
-
-const Login =()=> {
+const Login = () => {
   const [user, setUserInfo] = useState([]);
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate(); 
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     email: data.get("email"),
-  //     password: data.get("password"),
-  //   });
-  // };
+  useEffect(() => {
+    let usersList = getUsers();
+    console.log('all',usersList);
+    console.log('user',user)
+  }, []);
 
-
-  const handleSubmit =(e: React.FormEvent<HTMLFormElement>)=> {
-    e.preventDefault();
-    let obj = {
-      login,
-      password
-    }
-    setUserInfo([...user, obj])
-  }
-
-  
+   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const user = {
+      email: data.get("email"),
+      password: data.get("password"),
+    };
+    setUserInfo([user]);
+    localStorage.setItem("user", JSON.stringify(user));
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -71,7 +64,6 @@ const Login =()=> {
             onSubmit={handleSubmit}
             noValidate
             sx={{ mt: 1 }}
-            
           >
             <TextField
               margin="normal"
@@ -116,7 +108,6 @@ const Login =()=> {
       </Container>
     </ThemeProvider>
   );
-}
+};
 
-
-export default Login
+export default Login;
