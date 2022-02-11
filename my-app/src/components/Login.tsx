@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Grid,
   Box,
@@ -17,30 +17,22 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useNavigate } from "react-router-dom";
 import { getUsers } from "../movieService";
 import { useTheme } from "@emotion/react";
-import {IUser, IMovie} from '../types';
-const theme = createTheme();
+// import {IUser, IMovie} from '../types';
 
-interface Props {
-  email: string;
-  password: string;
-}
+// interface Props {
+//   email: string;
+//   password: string;
+// }
 
 const Login = () => {
   const [user, setUserInfo] = useState([]);
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  // const [isAuth, setAuth] = useState(false);
   const navigate = useNavigate();
+  const theme = createTheme();
 
-  useEffect(() => {
-    let usersList = getUsers();
-    // console.log('first, userList', usersList)
-    // console.log('first, user', user)
-    // const verifyUser = usersList.find(
-    //   (item) => item.email
-    // );
-  }, [user]);
-
-   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const user = {
@@ -48,13 +40,19 @@ const Login = () => {
       password: data.get("password"),
     };
     setUserInfo([user]);
-    localStorage.setItem("user", JSON.stringify(user));
+    
     const usersList = getUsers();
-    console.log('userlist>>>>>',usersList)
+    console.log("userlist>>>>>", usersList);
     let userVerify = usersList.find(
       (item) => user.email === item.email && user.password === item.password
     );
-    console.log(userVerify)
+    if (userVerify) {
+      userVerify.isAdmin = true;
+      console.log("userVerify>>>>", userVerify);
+      localStorage.setItem("user", JSON.stringify(userVerify));
+    } else {
+      console.log("This user does not exist");
+    }
   };
 
   return (
@@ -103,6 +101,9 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {/* <Grid item>
+            This user does not exist
+            </Grid> */}
 
             <Button
               type="submit"

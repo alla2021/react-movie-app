@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,12 +13,11 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-const theme = createTheme();
 
 export default function RegisterForm() {
   const [users, setUserInfo] = useState([]);
   const navigate = useNavigate();
-
+  const theme = createTheme();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -108,7 +107,7 @@ export default function RegisterForm() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link onClick={()=>navigate("/login")}>
+                <Link onClick={() => navigate("/login")}>
                   Already have an account? Sign in
                 </Link>
               </Grid>

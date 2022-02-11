@@ -13,18 +13,18 @@ import "./scss/main.scss";
 import { useNavigate } from "react-router-dom";
 import UserProfile from "./components/UserProfile";
 
-const admin = {
-  email: 'test@test.com',
-  password: 'test'
-}
-
 const App = () => {
 const [isAuth, setAuth] = useState(false);
 
-
   useEffect(() => {
     initMovies();
-  });
+  },[]);
+
+  // const user = JSON.parse(localStorage.getItem("user"));
+  // console.log(user, 'ssss')
+  // user.isAdmin ? setAuth(true) : setAuth(false)
+ 
+
   return (
     <>
       <Header />
@@ -32,8 +32,8 @@ const [isAuth, setAuth] = useState(false);
         <Route path="/" element={<Homepage />} />
         <Route path="/movies" element={<MovieList />} />
         <Route path="/movies/:id" element={<MoviePage />} />
-        <Route path="/addmovie" element={<AddForm />} />
-        <Route path="/editmovie/:id" element={<EditForm/>} /> 
+        <Route path="/addmovie" element={!isAuth ? <AddForm />:<Login/> } />
+        <Route path="/editmovie/:id" element={!isAuth ? <EditForm/> : <Login/>} /> 
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<RegisterForm />}></Route>
       </Routes>
