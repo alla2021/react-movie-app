@@ -16,7 +16,14 @@ import {
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useNavigate } from "react-router-dom";
 import { getUsers } from "../movieService";
+import { useTheme } from "@emotion/react";
+import {IUser, IMovie} from '../types';
 const theme = createTheme();
+
+interface Props {
+  email: string;
+  password: string;
+}
 
 const Login = () => {
   const [user, setUserInfo] = useState([]);
@@ -26,9 +33,12 @@ const Login = () => {
 
   useEffect(() => {
     let usersList = getUsers();
-    console.log('all',usersList);
-    console.log('user',user)
-  }, []);
+    // console.log('first, userList', usersList)
+    // console.log('first, user', user)
+    // const verifyUser = usersList.find(
+    //   (item) => item.email
+    // );
+  }, [user]);
 
    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -39,6 +49,12 @@ const Login = () => {
     };
     setUserInfo([user]);
     localStorage.setItem("user", JSON.stringify(user));
+    const usersList = getUsers();
+    console.log('userlist>>>>>',usersList)
+    let userVerify = usersList.find(
+      (item) => user.email === item.email && user.password === item.password
+    );
+    console.log(userVerify)
   };
 
   return (

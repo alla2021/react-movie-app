@@ -9,6 +9,7 @@ const MoviesPage = () => {
   const { id } = useParams();
   const [info, getInfo] = useState([]);
   console.log(id);
+  
   useEffect(() => {
     getInfo(getMovies());
   }, [id]);

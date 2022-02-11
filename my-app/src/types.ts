@@ -8,3 +8,11 @@ export interface IMovie {
   featured: boolean;
   img: string
 }
+
+export interface IUser {
+  firstName: string | null;
+  lastName: string | null;
+  id: number;
+  email: string | null;
+  password: string | null;
+}
