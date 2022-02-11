@@ -11,14 +11,25 @@ import RegisterForm from "./components/RegisterForm";
 import { initMovies } from "./movieService";
 import "./scss/main.scss";
 import { useNavigate } from "react-router-dom";
+import {IUser} from './types'
+
+// interface Props {
+//   userI : IUser[]
+// }
 
 const App = () => {
-// const [isAuth, setAuth] = useState(false);
 const [user, setUserInfo] = useState([]);
+const [isAuth, setAuth] = useState(false);
+console.log(user)
 
   useEffect(() => {
     initMovies();
-  });
+   
+  },[]);
+
+
+
+console.log(isAuth)
 
   return (
     <>

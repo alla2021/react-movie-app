@@ -37,7 +37,6 @@ const Login = ({user, setUserInfo}) => {
       email: data.get("email"),
       password: data.get("password"),
     };
-    setUserInfo([user]);
     
     const usersList = getUsers();
     console.log("userlist>>>>>", usersList);
@@ -45,8 +44,9 @@ const Login = ({user, setUserInfo}) => {
       (item) => user.email === item.email && user.password === item.password
     );
     if (userVerify) {
-      userVerify.loggedIn = true;
+      userVerify.auth = true;
       console.log("userVerify>>>>", userVerify);
+      setUserInfo([userVerify]);
       localStorage.setItem("user", JSON.stringify(userVerify));
     } else {
       console.log("This user does not exist");
