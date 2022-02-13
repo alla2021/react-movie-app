@@ -17,13 +17,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useNavigate } from "react-router-dom";
 import { getUsers } from "../movieService";
 import { useTheme } from "@emotion/react";
-
 // import {IUser, IMovie} from '../types';
 
-// interface Props {
-//   email: string;
-//   password: string;
-// }
 
 const Login = ({user, setUserInfo, setAuth, isAuth}) => {
   const [login, setLogin] = useState("");
