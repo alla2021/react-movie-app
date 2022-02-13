@@ -18,6 +18,7 @@ export default function RegisterForm() {
   const [users, setUserInfo] = useState([]);
   const navigate = useNavigate();
   const theme = createTheme();
+  
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);

@@ -24,7 +24,7 @@ import { useTheme } from "@emotion/react";
 //   password: string;
 // }
 
-const Login = ({user, setUserInfo}) => {
+const Login = ({user, setUserInfo, setAuth, isAuth}) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -48,6 +48,7 @@ const Login = ({user, setUserInfo}) => {
       console.log("userVerify>>>>", userVerify);
       setUserInfo([userVerify]);
       localStorage.setItem("user", JSON.stringify(userVerify));
+      setAuth(true)
     } else {
       console.log("This user does not exist");
     }

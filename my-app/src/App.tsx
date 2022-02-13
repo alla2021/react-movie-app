@@ -20,15 +20,18 @@ import {IUser} from './types'
 const App = () => {
 const [user, setUserInfo] = useState([]);
 const [isAuth, setAuth] = useState(false);
-console.log(user)
+console.log(isAuth)
 
   useEffect(() => {
     initMovies();
   },[]);
 
+  const checkAuth = () =>{
+    const user = JSON.parse(localStorage.getItem("users"));
+    console.log(user, 'dddddddddd')
+  }
 
-
-console.log(isAuth)
+  checkAuth()
 
   return (
     <>
@@ -37,9 +40,9 @@ console.log(isAuth)
         <Route path="/" element={<Homepage />} />
         <Route path="/movies" element={<MovieList />} />
         <Route path="/movies/:id" element={<MoviePage />} />
-        <Route path="/addmovie" element={ <AddForm />} />
-        <Route path="/editmovie/:id" element={<EditForm />} /> 
-        <Route path="/login" element={<Login user={user} setUserInfo={setUserInfo}/>}></Route>
+        <Route path="/addmovie" element={isAuth ? <AddForm /> : <Login user={user} setUserInfo={setUserInfo} isAuth={isAuth} setAuth={setAuth}/>} />
+        <Route path="/editmovie/:id" element={isAuth ? <EditForm /> : <Login user={user} setUserInfo={setUserInfo} isAuth={isAuth} setAuth={setAuth}/>} /> 
+        <Route path="/login" element={<Login user={user} setUserInfo={setUserInfo} isAuth={isAuth} setAuth={setAuth}/>}></Route>
         <Route path="/register" element={<RegisterForm />}></Route>
       </Routes>
     </>
