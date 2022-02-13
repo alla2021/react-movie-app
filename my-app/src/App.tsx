@@ -7,19 +7,14 @@ import Header from "./components/Header";
 import AddForm from "./components/AddForm";
 import EditForm from "./components/EditForm";
 import Login from "./components/Login";
+import Logout from "./components/Logout";
 import RegisterForm from "./components/RegisterForm";
 import { initMovies } from "./movieService";
 import "./scss/main.scss";
-import { useNavigate } from "react-router-dom";
-import {IUser} from './types'
-
-// interface Props {
-//   userI : IUser[]
-// }
 
 const App = () => {
 const [user, setUserInfo] = useState([]);
-const [isAuth, setAuth] = useState(false);
+const [isAuth, setAuth] = useState<boolean>(false);
 console.log(isAuth)
 
   useEffect(() => {
@@ -44,6 +39,7 @@ console.log(isAuth)
         <Route path="/editmovie/:id" element={isAuth ? <EditForm /> : <Login user={user} setUserInfo={setUserInfo} isAuth={isAuth} setAuth={setAuth}/>} /> 
         <Route path="/login" element={<Login user={user} setUserInfo={setUserInfo} isAuth={isAuth} setAuth={setAuth}/>}></Route>
         <Route path="/register" element={<RegisterForm />}></Route>
+        <Route path="/logout" element={isAuth ? <Logout setAuth={setAuth}/> : <Homepage /> } />
       </Routes>
     </>
   );
