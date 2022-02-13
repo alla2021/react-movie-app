@@ -8,7 +8,7 @@ import AddIcon from "@mui/icons-material/Add";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from '@mui/icons-material/Logout';
 
-function Header() {
+function Header({isAuth}) {
   return (
     <>
       <Container>
@@ -34,19 +34,20 @@ function Header() {
               Add movie
             </Link>
           </Grid>
-          <Grid item xs={2}>
+          {!isAuth ? (<Grid item xs={2}>
             <Link to="/login">
               <LoginIcon />
               Sign in
             </Link>
-          </Grid>
-          <Grid item xs={2}>
+          </Grid>) :
+          (<Grid item xs={2}> 
             <Link to="/logout">
               <LogoutIcon />
               Log out
             </Link>
-          </Grid>
-        </Grid>
+          </Grid>)
+}        
+</Grid>
       </Container>
     </>
   );

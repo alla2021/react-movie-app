@@ -14,11 +14,11 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-export default function RegisterForm() {
+export default function RegisterForm({ setAuth }) {
   const [users, setUserInfo] = useState([]);
   const navigate = useNavigate();
   const theme = createTheme();
-  
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -32,6 +32,8 @@ export default function RegisterForm() {
     };
     setUserInfo([...users, user]);
     localStorage.setItem("users", JSON.stringify([...users, user]));
+    setAuth(true);
+    navigate("/movies");
   };
 
   return (

@@ -17,6 +17,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useNavigate } from "react-router-dom";
 import { getUsers } from "../movieService";
 import { useTheme } from "@emotion/react";
+
 // import {IUser, IMovie} from '../types';
 
 // interface Props {
@@ -49,6 +50,7 @@ const Login = ({user, setUserInfo, setAuth, isAuth}) => {
       setUserInfo([userVerify]);
       localStorage.setItem("user", JSON.stringify(userVerify));
       setAuth(true)
+      navigate("/movies");
     } else {
       console.log("This user does not exist");
     }

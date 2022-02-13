@@ -15,22 +15,14 @@ import "./scss/main.scss";
 const App = () => {
 const [user, setUserInfo] = useState([]);
 const [isAuth, setAuth] = useState<boolean>(false);
-console.log(isAuth)
 
   useEffect(() => {
     initMovies();
   },[]);
 
-  const checkAuth = () =>{
-    const user = JSON.parse(localStorage.getItem("users"));
-    console.log(user, 'dddddddddd')
-  }
-
-  checkAuth()
-
   return (
     <>
-      <Header />
+      <Header isAuth={isAuth}/>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/movies" element={<MovieList />} />
@@ -38,7 +30,7 @@ console.log(isAuth)
         <Route path="/addmovie" element={isAuth ? <AddForm /> : <Login user={user} setUserInfo={setUserInfo} isAuth={isAuth} setAuth={setAuth}/>} />
         <Route path="/editmovie/:id" element={isAuth ? <EditForm /> : <Login user={user} setUserInfo={setUserInfo} isAuth={isAuth} setAuth={setAuth}/>} /> 
         <Route path="/login" element={<Login user={user} setUserInfo={setUserInfo} isAuth={isAuth} setAuth={setAuth}/>}></Route>
-        <Route path="/register" element={<RegisterForm />}></Route>
+        <Route path="/register" element={<RegisterForm  setAuth={setAuth}/>}></Route>
         <Route path="/logout" element={isAuth ? <Logout setAuth={setAuth}/> : <Homepage /> } />
       </Routes>
     </>
