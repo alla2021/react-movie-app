@@ -1,22 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button, ButtonGroup } from "@mui/material/";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ReadMoreIcon from "@mui/icons-material/ReadMore";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonIcon from "@mui/icons-material/Person";
-import { getMovies } from "../movieService";
+import { getMovies, deleteMovie, getMoviesData } from "../movieService";
 import { IMovie } from "../types";
 
 const MovieList = () => {
-  const [films, setFilms] = useState<IMovie[]>(getMovies());
+  const [films, setFilms] = useState<IMovie[]>([]);
   console.log("ff", films);
 
-  function deleteMovie() {
+  // function deleteMovie() {
+  //   setFilms((prevFilms) => {
+  //     const updateFilms = prevFilms.slice(0, prevFilms.length - 1);
+  //     localStorage.setItem("movies", JSON.stringify(updateFilms));
+  //     return updateFilms;
+  //   });
+  // }
+
+    useEffect(() => {
+    async function getData() {
+      setFilms(await getMoviesData());
+    }
+    getData();
+  }, []);
+
+  async function removeMovie(movie) {
+    await deleteMovie(movie.id);
+    console.log(movie.id);
     setFilms((prevFilms) => {
-      const updateFilms = prevFilms.slice(0, prevFilms.length - 1);
-      localStorage.setItem("movies", JSON.stringify(updateFilms));
-      return updateFilms;
+      return prevFilms.filter((item) => item._id !== movie.id);
     });
   }
 
@@ -38,7 +53,7 @@ const MovieList = () => {
             </span>
           </div>
           <ButtonGroup variant="outlined" aria-label="outlined button group">
-            <Button onClick={deleteMovie}>
+            <Button onClick={removeMovie}>
               <DeleteIcon color="secondary" />
             </Button>
             <Link to={`/movies/${item._id}`}>

@@ -1,6 +1,6 @@
  const movies = [
   {
-    _id: 1,
+    id: 1,
     title: "Legend of the Seeker",
     director: "Stephen Tolkin",
     duration: 93,
@@ -11,7 +11,7 @@
       "After the mysterious murder of his father, a son's search for answers begins a momentous fight against tyranny.",
   },
   {
-    _id: 2,
+    id: 2,
     title: "Gnomebook",
     director: "Murray Fahey",
     duration: 88,
@@ -22,8 +22,8 @@
       "A colourful array of characters compete at the Annual Australian Garden Gnome Convention. Once a year 2000 garden gnomes and 10,000 gnome carers gather in the sleepy mountain hamlet of Glenbrook, for the annual Gnome convention; the gnomes arrive by road, train, plane, foot and post",
   },
   {
-    _id: 3,
-    title: "Rise of the Legend",
+    id: 3,
+  title: "Rise of the Legend",
     director: "Teng Bee",
     duration: 110,
     price: 55.2,
@@ -33,7 +33,7 @@
       "RISE OF THE LEGEND is a story about Lee Chong Wei, who was born in a poor family. He has the talent of playing badminton and went through a lot of difficulties with the spirit of never giving up, finally he becomes a national player.",
   },
  {
-    _id: 4,
+    id: 4,
     title: "Siji: Driver",
     director: "David Chai",
     duration: 88,
@@ -44,7 +44,7 @@
       "After a driver rescues a passenger from an abusive boyfriend, he discovers she is a human trafficking victim. But in order to free her, he must give up the thing he loves the most.",
   },
   {
-    _id: 5,
+    id: 5,
     title: "Aquaman",
     director: "James Wan",
     duration: 112,

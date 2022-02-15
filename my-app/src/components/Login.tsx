@@ -15,12 +15,11 @@ import {
 } from "@mui/material/";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useNavigate } from "react-router-dom";
-import { getUsers } from "../movieService";
+import { getUsers } from "../userService";
 import { useTheme } from "@emotion/react";
 // import {IUser, IMovie} from '../types';
 
-
-const Login = ({user, setUserInfo, setAuth, isAuth}) => {
+const Login = ({ user, setUserInfo, setAuth, isAuth }) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -33,22 +32,23 @@ const Login = ({user, setUserInfo, setAuth, isAuth}) => {
       email: data.get("email"),
       password: data.get("password"),
     };
-    
-    const usersList = getUsers();
-    console.log("userlist>>>>>", usersList);
-    let userVerify = usersList.find(
-      (item) => user.email === item.email && user.password === item.password
-    );
-    if (userVerify) {
-      userVerify.auth = true;
-      console.log("userVerify>>>>", userVerify);
-      setUserInfo([userVerify]);
-      localStorage.setItem("user", JSON.stringify(userVerify));
-      setAuth(true)
-      navigate("/movies");
-    } else {
-      console.log("This user does not exist");
+    async function fetchUsersList() {
+      const users = await getUsers();
+      let userVerify = users.find(
+        (item) => user.email === item.email && user.password === item.password
+      );
+      if (userVerify) {
+        userVerify.auth = true;
+        console.log("userVerify>>>>", userVerify);
+        setUserInfo([userVerify]);
+        localStorage.setItem("user", JSON.stringify(userVerify));
+        setAuth(true);
+        navigate("/movies");
+      } else {
+        console.log("This user does not exist");
+      }
     }
+    fetchUsersList();
   };
 
   return (

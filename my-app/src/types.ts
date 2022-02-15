@@ -13,7 +13,7 @@ export interface IUser {
   firstName: string | null;
   lastName: string | null;
   id: number;
-  email: string;
-  password: string;
-  auth: boolean;
+  email: string | null;
+  password: string | null;
+  isAdmin: boolean;
 }

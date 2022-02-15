@@ -3,14 +3,19 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material/";
 import EditIcon from "@mui/icons-material/Edit";
-import { getMovies } from "../movieService";
+import { getMovies, getMoviesData } from "../movieService";
 
 const MoviesPage = () => {
   const { id } = useParams();
   const [info, getInfo] = useState([]);
   
   useEffect(() => {
-    getInfo(getMovies());
+    async function fetchData(){
+      let movieDb = await getMoviesData()
+      getInfo(movieDb)
+      console.log('first',movieDb)
+    }
+    fetchData()
   }, [id]);
 
   const movie = info.find((item) => parseInt(id) === item._id);

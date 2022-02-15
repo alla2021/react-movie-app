@@ -12,10 +12,11 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
+import {  addUser } from '../userService';
 import { useParams } from "react-router-dom";
 
 export default function RegisterForm({ setAuth }) {
-  const [users, setUserInfo] = useState([]);
+  // const [users, setUserInfo] = useState([]);
   const navigate = useNavigate();
   const theme = createTheme();
 
@@ -23,15 +24,16 @@ export default function RegisterForm({ setAuth }) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const user = {
-      _id: Math.trunc(Math.random() * 100),
+      id: Math.trunc(Math.random() * 100),
       email: data.get("email"),
       password: data.get("password"),
       firstName: data.get("firstName"),
       lastName: data.get("lastName"),
       isAdmin: false,
     };
-    setUserInfo([...users, user]);
-    localStorage.setItem("users", JSON.stringify([...users, user]));
+    addUser(user)
+    // setUserInfo([...users, user]);
+    // localStorage.setItem("users", JSON.stringify([...users, user]));
     setAuth(true);
     navigate("/movies");
   };
