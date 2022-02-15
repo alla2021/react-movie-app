@@ -10,13 +10,13 @@ export async function getMoviesData() {
   return movieData;
 }
 
-export async function deleteMovie(id) {
+export async function deleteMovieFromBd(id) {
   console.log(id);
   await fetch(`${URL}/${id}`, {
     method: "DELETE",
   });
 }
-export async function addFilm(newFilm) {
+export async function addMovieBd(newFilm) {
   await fetch(URL, {
     method: "POST",
     body: JSON.stringify(newFilm),
@@ -45,6 +45,7 @@ export async function editMovieData(updatedMovie) {
     },
   });
 }
+
 
 //ls
 export function getMovies() {

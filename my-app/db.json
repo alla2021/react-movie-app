@@ -49,16 +49,6 @@
       "img": "/img/aquaman.jpg",
       "featured": false,
       "description": "Arthur Curry, the human-born heir to the underwater kingdom of Atlantis, goes on a quest to prevent a war between the worlds of ocean and land. "
-    },
-    {
-      "_id": 6,
-      "title": "Dune (2021 film)",
-      "director": " Denis Villeneuve",
-      "duration": 112,
-      "price": 53.2,
-      "img": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Dune_%282021_film%29.jpg/220px-Dune_%282021_film%29.jpg",
-      "featured": false,
-      "description": "In a far future when faster-than-light travel is possible and almost all the planets in the known universe are under the sway of a feudal aristocratic empire, Duke Leto of House Atreides, ruler of the ocean planet Caladan, is assigned by the Padishah Emperor Shaddam Corrino IV to replace House Harkonnen as fief rulers of Arrakis. Arrakis is a harsh desert planet and the only source of "spice", a valuable substance that bestows its users heightened vitality and expanded consciousness. It is critical for interstellar travel as it allows Spacing Guild Navigators to use a limited form of prescience to safely navigate interstellar space. In reality, Shaddam intends to have House Harkonnen stage a coup to retake the planet with aid of the Emperor's Sardaukar troops, eradicating House Atreides, whose influence threatens Shaddam's control. Leto is apprehensive but sees the political advantages of controlling the spice planet and forming an alliance with its native population, skilled fighters known as the Fremen."
     }
   ],
   "users": [

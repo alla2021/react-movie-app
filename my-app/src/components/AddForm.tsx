@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, TextField } from "@mui/material/";
 import { useNavigate } from "react-router-dom";
-import { getMovies, addMovies} from "../movieService";
+import { getMoviesData, addMovieBd } from "../movieService";
 
 function AddForm() {
   const [movies, setMovies] = useState([]);
@@ -17,9 +17,13 @@ function AddForm() {
     navigate("/movies");
   }
 
+  // async function getData() {
+  //   setMovies(await getMoviesData());
+  // }
+  // getData();
+
   const handleAddFilmSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    getMovies();
     let newMovie = {
       _id: Math.trunc(Math.random() * 100),
       title,
@@ -30,8 +34,11 @@ function AddForm() {
       featured: false,
       description,
     };
-    setMovies([...movies, newMovie]);
-    addMovies(newMovie);
+    console.log('first, newMovie',newMovie)
+    setMovies([newMovie]);
+    console.log(movies, 'movies')
+
+    addMovieBd(newMovie);
     handleClickRedirect();
   };
 
