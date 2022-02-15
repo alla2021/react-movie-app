@@ -17,15 +17,10 @@ function AddForm() {
     navigate("/movies");
   }
 
-  // async function getData() {
-  //   setMovies(await getMoviesData());
-  // }
-  // getData();
-
-  const handleAddFilmSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  async function handleAddFilmSubmit (e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     let newMovie = {
-      _id: Math.trunc(Math.random() * 100),
+      id: Math.random() * 1000,
       title,
       director,
       duration,
@@ -34,11 +29,8 @@ function AddForm() {
       featured: false,
       description,
     };
-    console.log('first, newMovie',newMovie)
-    setMovies([newMovie]);
-    console.log(movies, 'movies')
-
-    addMovieBd(newMovie);
+    console.log('add newMovie',newMovie)
+    await addMovieBd(newMovie);
     handleClickRedirect();
   };
 

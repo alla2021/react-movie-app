@@ -10,7 +10,6 @@ import { IMovie } from "../types";
 
 const MovieList = () => {
   const [films, setFilms] = useState<IMovie[]>([]);
-  console.log("ff", films);
 
   useEffect(() => {
     async function getData() {
@@ -19,20 +18,18 @@ const MovieList = () => {
     getData();
   }, []);
 
-  console.log('first, films', films)
-
-  async function removeMovie(movie) {
-    await deleteMovieFromBd(movie.id);
-    console.log(movie.id);
+  async function removeMovie(film) {
+    await deleteMovieFromBd(film);
+    console.log(films);
     setFilms((prevFilms) => {
-      return prevFilms.filter((item) => item._id !== movie.id);
+      return prevFilms.filter((item) => item.id !== film.id);
     });
   }
 
   return (
     <div className="movie-list">
       {films.map((item) => (
-        <div key={item._id} className="movie-list__item">
+        <div key={item.id} className="movie-list__item">
           <img src={`${item.img}`} alt={`${item.title}`} />
           <div className="movie-list__price">{item.price}</div>
           <div className="movie-list__title">{item.title}</div>
@@ -50,7 +47,7 @@ const MovieList = () => {
             <Button onClick={removeMovie}>
               <DeleteIcon color="secondary" />
             </Button>
-            <Link to={`/movies/${item._id}`}>
+            <Link to={`/movies/${item.id}`}>
               <Button>
                 <ReadMoreIcon color="success" />
               </Button>

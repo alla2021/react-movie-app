@@ -10,8 +10,8 @@ export async function getMoviesData() {
   return movieData;
 }
 
-export async function deleteMovieFromBd(id) {
-  console.log(id);
+export async function deleteMovieFromBd(id:any) {
+  console.log('a=i del',id)
   await fetch(`${URL}/${id}`, {
     method: "DELETE",
   });

@@ -7,6 +7,7 @@ import { getMovies, getMoviesData } from "../movieService";
 
 const MoviesPage = () => {
   const { id } = useParams();
+  console.log('id-id', id)
   const [info, getInfo] = useState([]);
   
   useEffect(() => {
@@ -18,7 +19,7 @@ const MoviesPage = () => {
     fetchData()
   }, [id]);
 
-  const movie = info.find((item) => parseInt(id) === item._id);
+  const movie = info.find((item) => parseInt(id) === item.id);
 
   return (
     <>
@@ -38,7 +39,7 @@ const MoviesPage = () => {
               <div className="movie-details__description">
                 {movie.description}
               </div>
-              <Link to={`/editmovie/${movie._id}`}>
+              <Link to={`/editmovie/${movie.id}`}>
                 <Button>
                   <EditIcon color="success" />
                 </Button>
