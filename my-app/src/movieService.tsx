@@ -6,12 +6,10 @@ const URL = "http://localhost:8080/movies";
 export async function getMoviesData() {
   const data = await fetch(URL);
   const movieData = await data.json();
-  console.log(movieData);
   return movieData;
 }
 
 export async function deleteMovieFromBd(id:any) {
-  console.log('a=i del',id)
   await fetch(`${URL}/${id}`, {
     method: "DELETE",
   });

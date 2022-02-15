@@ -7,7 +7,6 @@ import { getMovies, getMoviesData } from "../movieService";
 
 const MoviesPage = () => {
   const { id } = useParams();
-  console.log('id-id', id)
   const [info, getInfo] = useState([]);
   
   useEffect(() => {

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Button, TextField } from "@mui/material/";
-import { getMovies, getMoviesData } from "../movieService";
+import { getMovies, getMoviesData, updateMovieData } from "../movieService";
 import { useNavigate } from "react-router-dom";
 import { IMovie } from "../types";
 
 function EditForm() {
   const { id } = useParams();
-  console.log('id',id)
   const [formData, setFormData] = useState({
     title: "",
     director: "",
@@ -21,30 +20,28 @@ function EditForm() {
   useEffect(() => {
     async function fetchList() {
       const movies = await getMoviesData();
-      console.log(movies, 'ddddd')
       const editMovie = movies.find(
         (item:any) => {
           return parseInt(id) === item.id;
         }
       );
-      console.log(editMovie)
+      setFormData(editMovie)
     }
     fetchList()
   }, [id]);
 
   const handleUpdateMovieItem = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const movies = getMovies();
+    async function fetchList() {
+    const movies = await getMoviesData();
     let movieToEditIndex = movies.findIndex(
-      (item) => parseInt(id) === item._id
+      (item) => parseInt(id) === item.id
     );
-    movies[movieToEditIndex] = {
-      ...movies[movieToEditIndex],
-      ...formData,
-      duration: Number(formData.duration),
-      price: Number(formData.price),
-    };
-    localStorage.setItem("movies", JSON.stringify([...movies]));
+    updateMovieData(movies[movieToEditIndex]) 
+  }
+  fetchList()
+
+    // localStorage.setItem("movies", JSON.stringify([...movies]));
     navigate("/movies");
   };
 
