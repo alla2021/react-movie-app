@@ -2,23 +2,23 @@
   "movies": [
     {
       "id": 1,
-      "title": "Legend of the Seeker",
-      "director": "Stephen Tolkin",
-      "duration": 93,
-      "price": 48.3,
-      "img": "/img/seeker.jpg",
+      "title": "The Rum Diary",
+      "director": "Bruce Robinson",
+      "duration": "120",
+      "price": "48.66",
+      "img": "https://kbimages1-a.akamaihd.net/6feeffad-38a1-45ed-a001-7763c87615c0/1200/1200/False/the-rum-diary-a-screenplay.jpg",
       "featured": false,
-      "description": "After the mysterious murder of his father, a son's search for answers begins a momentous fight against tyranny."
+      "description": "The Rum Diary is a 2011 American comedy-drama film written and directed by Bruce Robinson, based on the 1998 novel of the same name by Hunter S. Thompson."
     },
     {
       "id": 2,
-      "title": "Gnomebook",
+      "title": "Free Guy",
       "director": "Murray Fahey",
-      "duration": 88,
+      "duration": "130",
       "price": 31.2,
-      "img": "/img/gnomebook.jpg",
+      "img": "https://lumiere-a.akamaihd.net/v1/images/p_20cs_freeguy_homeent_21930_49e74453.jpeg?region=0%2C0%2C540%2C810",
       "featured": true,
-      "description": "A colourful array of characters compete at the Annual Australian Garden Gnome Convention. Once a year 2000 garden gnomes and 10,000 gnome carers gather in the sleepy mountain hamlet of Glenbrook, for the annual Gnome convention; the gnomes arrive by road, train, plane, foot and post"
+      "description": "In the extremely popular video game, Free City, a NPC named Guy learns the true nature of his existence when he meets the girl of his dreams, a human player. This player's interactions with Guy has massive affects on him, the game, and real world as they play it."
     },
     {
       "id": 3,
@@ -59,6 +59,16 @@
       "img": "https://m.media-amazon.com/images/M/MV5BNzVkYWY4NzYtMWFlZi00YzkwLThhZDItZjcxYTU4ZTMzMDZmXkEyXkFqcGdeQXVyODUxOTU0OTg@._V1_FMjpg_UX1000_.jpg",
       "featured": false,
       "description": "Comedy series following the exploits of Det. Jake Peralta and his diverse, lovable colleagues as they police the NYPD's 99th Precinct."
+    },
+    {
+      "id": 791.248156991041,
+      "title": " Inglourious Basterds",
+      "director": " Quentin Tarantino ",
+      "duration": "154",
+      "price": "100",
+      "img": "https://m.media-amazon.com/images/M/MV5BOTJiNDEzOWYtMTVjOC00ZjlmLWE0NGMtZmE1OWVmZDQ2OWJhXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_FMjpg_UX1000_.jpg",
+      "featured": false,
+      "description": "In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner's vengeful plans for the same."
     }
   ],
   "users": [

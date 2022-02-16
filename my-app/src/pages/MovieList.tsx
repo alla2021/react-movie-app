@@ -5,7 +5,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ReadMoreIcon from "@mui/icons-material/ReadMore";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonIcon from "@mui/icons-material/Person";
-import { deleteMovieFromBd, getMoviesData } from "../movieService";
+import { getMoviesData, deleteMovieFromBd } from "../movieService";
 import { IMovie } from "../types";
 
 const MovieList = () => {
@@ -16,13 +16,14 @@ const MovieList = () => {
       setFilms(await getMoviesData());
     }
     getData();
+
   }, []);
 
-  async function removeMovie(film) {
-    await deleteMovieFromBd(film);
-    console.log(films);
+
+  async function removeMovie(movie) {
+    await deleteMovieFromBd(movie.id);
     setFilms((prevFilms) => {
-      return prevFilms.filter((item) => item.id !== film.id);
+      return prevFilms.filter((item) => item.id !== movie.id);
     });
   }
 

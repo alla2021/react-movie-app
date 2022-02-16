@@ -13,7 +13,6 @@ const MoviesPage = () => {
     async function fetchData(){
       let movieDb = await getMoviesData()
       getInfo(movieDb)
-      console.log('first',movieDb)
     }
     fetchData()
   }, [id]);
