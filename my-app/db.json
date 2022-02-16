@@ -59,36 +59,6 @@
       "img": "https://m.media-amazon.com/images/M/MV5BNzVkYWY4NzYtMWFlZi00YzkwLThhZDItZjcxYTU4ZTMzMDZmXkEyXkFqcGdeQXVyODUxOTU0OTg@._V1_FMjpg_UX1000_.jpg",
       "featured": false,
       "description": "Comedy series following the exploits of Det. Jake Peralta and his diverse, lovable colleagues as they police the NYPD's 99th Precinct."
-    },
-    {
-      "id": 46.313883719634404,
-      "title": "f",
-      "director": "f",
-      "duration": "-1",
-      "price": "1",
-      "img": "f",
-      "featured": false,
-      "description": "1"
-    },
-    {
-      "id": 708.8566142305606,
-      "title": "m",
-      "director": "m",
-      "duration": "1",
-      "price": "2",
-      "img": "1",
-      "featured": false,
-      "description": "66"
-    },
-    {
-      "id": 903.4543028345261,
-      "title": "r",
-      "director": "rr",
-      "duration": "1",
-      "price": "1",
-      "img": "1",
-      "featured": false,
-      "description": "1111"
     }
   ],
   "users": [

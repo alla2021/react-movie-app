@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Button, TextField } from "@mui/material/";
-import { getMovies, getMoviesData, updateMovieData } from "../movieService";
+import { getMoviesData, updateMovieData, editMovieData } from "../movieService";
 import { useNavigate } from "react-router-dom";
 import { IMovie } from "../types";
 
@@ -37,10 +37,19 @@ function EditForm() {
     let movieToEditIndex = movies.findIndex(
       (item) => parseInt(id) === item.id
     );
-    updateMovieData(movies[movieToEditIndex]) 
+    movies[movieToEditIndex] = {
+      ...movies[movieToEditIndex],
+      ...formData,
+      duration: Number(formData.duration),
+      price: Number(formData.price),
+    };
+    console.log(movies,'eeeeeee')
+    setFormData(movies)
+    // updateMovieData(movies) 
   }
   fetchList()
-
+  console.log('first, movies', formData)
+  editMovieData(formData)
     // localStorage.setItem("movies", JSON.stringify([...movies]));
     navigate("/movies");
   };
