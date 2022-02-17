@@ -45,7 +45,6 @@ function EditForm() {
     };
     console.log(movies,'eeeeeee')
     setFormData(movies)
-    // updateMovieData(movies) 
   }
   fetchList()
   console.log('first, movies', formData)

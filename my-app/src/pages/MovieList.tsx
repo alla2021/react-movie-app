@@ -16,7 +16,6 @@ const MovieList = () => {
       setFilms(await getMoviesData());
     }
     getData();
-
   }, []);
 
 
@@ -45,7 +44,7 @@ const MovieList = () => {
             </span>
           </div>
           <ButtonGroup variant="outlined" aria-label="outlined button group">
-            <Button onClick={removeMovie}>
+            <Button onClick={() => removeMovie(item)}>
               <DeleteIcon color="secondary" />
             </Button>
             <Link to={`/movies/${item.id}`}>
