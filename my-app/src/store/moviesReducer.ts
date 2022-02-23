@@ -14,7 +14,8 @@ export function moviesReducer(state = initialState, action: any) {
     case "Edit movie":
       return state;
     case "Delete movie":
-      return state;
+      return { ...state,
+        movies: state.movies.filter((item) => item.id !== action.payload)}
     default:
       return state;
   }

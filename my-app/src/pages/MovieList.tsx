@@ -25,12 +25,14 @@ const MovieList = () => {
   }, [dispatch]);
   console.log('first, movies', movies)
 
-  // async function removeMovie(movie) {
-  //   await deleteMovieFromBd(movie.id);
-  //   setFilms((prevFilms) => {
-  //     return prevFilms.filter((item) => item.id !== movie.id);
-  //   });
-  // }
+  async function removeMovie(movie) {
+    await deleteMovieFromBd(movie.id);
+    console.log(movie.id)
+    dispatch({type: "Delete movie", payload: movie.id })
+    // setFilms((prevFilms) => {
+    //   return prevFilms.filter((item) => item.id !== movie.id);
+    // });
+  }
 
   return (
     <div className="movie-list">
@@ -50,9 +52,9 @@ const MovieList = () => {
             </span>
           </div>
           <ButtonGroup variant="outlined" aria-label="outlined button group">
-            {/* <Button onClick={() => removeMovie(item)}> */}
+            <Button onClick={() => removeMovie(item)}>
               <DeleteIcon color="secondary" />
-            {/* </Button> */}
+            </Button>
             <Link to={`/movies/${item.id}`}>
               <Button>
                 <ReadMoreIcon color="success" />
