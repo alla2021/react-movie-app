@@ -21,30 +21,10 @@
       "description": "In the extremely popular video game, Free City, a NPC named Guy learns the true nature of his existence when he meets the girl of his dreams, a human player. This player's interactions with Guy has massive affects on him, the game, and real world as they play it."
     },
     {
-      "id": 3,
-      "title": "Rise of the Legend",
-      "director": "Teng Bee",
-      "duration": 110,
-      "price": 55.2,
-      "img": "/img/rise.jpg",
-      "featured": false,
-      "description": "RISE OF THE LEGEND is a story about Lee Chong Wei, who was born in a poor family. He has the talent of playing badminton and went through a lot of difficulties with the spirit of never giving up, finally he becomes a national player."
-    },
-    {
-      "id": 5,
-      "title": "Aquaman",
-      "director": "James Wan",
-      "duration": 112,
-      "price": 55.2,
-      "img": "/img/aquaman.jpg",
-      "featured": false,
-      "description": "Arthur Curry, the human-born heir to the underwater kingdom of Atlantis, goes on a quest to prevent a war between the worlds of ocean and land. "
-    },
-    {
       "id": 94,
       "title": "Brooklyn Nine-Nine",
       "director": "Michael Schur",
-      "duration": "45",
+      "duration": "43",
       "price": "122",
       "img": "https://m.media-amazon.com/images/M/MV5BNzVkYWY4NzYtMWFlZi00YzkwLThhZDItZjcxYTU4ZTMzMDZmXkEyXkFqcGdeQXVyODUxOTU0OTg@._V1_FMjpg_UX1000_.jpg",
       "featured": false,
@@ -59,6 +39,16 @@
       "img": "https://m.media-amazon.com/images/M/MV5BOTJiNDEzOWYtMTVjOC00ZjlmLWE0NGMtZmE1OWVmZDQ2OWJhXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_FMjpg_UX1000_.jpg",
       "featured": false,
       "description": "In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner's vengeful plans for the same."
+    },
+    {
+      "id": 771.5334094812121,
+      "title": "Ghostbusters: Afterlife",
+      "director": " Jason Reitman",
+      "duration": "134",
+      "price": "44",
+      "img": "https://m.media-amazon.com/images/M/MV5BMmZiMjdlN2UtYzdiZS00YjgxLTgyZGMtYzE4ZGU5NTlkNjhhXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg",
+      "featured": false,
+      "description": "When a single mother and her two children move to a new town, they soon discover they have a connection to the original Ghostbusters and the secret legacy their grandfather left behind."
     }
   ],
   "users": [
