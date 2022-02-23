@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux'; 
 import { moviesReducer } from "./moviesReducer";
-import thunk from 'redux-thunk'; 
+// import thunk from 'redux-thunk'; 
 
 export const store = createStore(
   moviesReducer,
