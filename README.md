@@ -18,10 +18,10 @@ Material UI
 ## How to Use
 To use this app, follow these steps:
 
-Clone the repository to your local machine using git clone https://github.com/alla2021/react-movie-app.git
-Navigate to the project directory using cd react-movie-app
-Install dependencies using npm install
-Start the app using npm start
-Open your browser and navigate to http://localhost:3000
-Run server: npm run start:server
-Open your browser and navigate to http://localhost:8080
+-Clone the repository to your local machine using git clone https://github.com/alla2021/react-movie-app.git
+-Navigate to the project directory using cd react-movie-app/client
+-Install dependencies using npm install
+-Start the app using npm start
+-Open your browser and navigate to http://localhost:3000
+-Run server: npm run start:server
+-Open your browser and navigate to http://localhost:8080
