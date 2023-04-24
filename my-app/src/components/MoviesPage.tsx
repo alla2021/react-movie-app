@@ -3,17 +3,21 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material/";
 import EditIcon from "@mui/icons-material/Edit";
-import { getMovies } from "../movieService";
+import { getMovies, getMoviesData } from "../movieService";
 
 const MoviesPage = () => {
   const { id } = useParams();
   const [info, getInfo] = useState([]);
   
   useEffect(() => {
-    getInfo(getMovies());
+    async function fetchData(){
+      let movieDb = await getMoviesData()
+      getInfo(movieDb)
+    }
+    fetchData()
   }, [id]);
 
-  const movie = info.find((item) => parseInt(id) === item._id);
+  const movie = info.find((item) => parseInt(id) === item.id);
 
   return (
     <>
@@ -33,7 +37,7 @@ const MoviesPage = () => {
               <div className="movie-details__description">
                 {movie.description}
               </div>
-              <Link to={`/editmovie/${movie._id}`}>
+              <Link to={`/editmovie/${movie.id}`}>
                 <Button>
                   <EditIcon color="success" />
                 </Button>

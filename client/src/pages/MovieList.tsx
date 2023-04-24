@@ -6,29 +6,38 @@ import ReadMoreIcon from "@mui/icons-material/ReadMore";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonIcon from "@mui/icons-material/Person";
 import { getMoviesData, deleteMovieFromBd } from "../movieService";
+import IconButton from '@mui/material/IconButton';
 import { IMovie } from "../types";
+import { RootState } from "../store/storeTypes";
+import {useSelector, useDispatch} from "react-redux"
 
 const MovieList = () => {
-  const [films, setFilms] = useState<IMovie[]>([]);
+  // const [films, setFilms] = useState<IMovie[]>([]);
+  const movies = useSelector((state:RootState) => state.movies)
+  const dispatch =  useDispatch();
 
   useEffect(() => {
     async function getData() {
-      setFilms(await getMoviesData());
+      const movies = await getMoviesData();
+      console.log(movies)
+      return dispatch({type: "Set movie", payload: movies});
     }
     getData();
-  }, []);
-
+  }, [dispatch]);
+  console.log('first, movies', movies)
 
   async function removeMovie(movie) {
     await deleteMovieFromBd(movie.id);
-    setFilms((prevFilms) => {
-      return prevFilms.filter((item) => item.id !== movie.id);
-    });
+    console.log(movie.id)
+    dispatch({type: "Delete movie", payload: movie.id })
+    // setFilms((prevFilms) => {
+    //   return prevFilms.filter((item) => item.id !== movie.id);
+    // });
   }
 
   return (
     <div className="movie-list">
-      {films.map((item) => (
+      {movies.map((item) => (
         <div key={item.id} className="movie-list__item">
           <img src={`${item.img}`} alt={`${item.title}`} />
           <div className="movie-list__price">{item.price}</div>
@@ -43,13 +52,13 @@ const MovieList = () => {
               {item.duration}
             </span>
           </div>
-          <ButtonGroup variant="outlined" aria-label="outlined button group">
-            <Button onClick={() => removeMovie(item)}>
-              <DeleteIcon color="secondary" />
-            </Button>
+          <ButtonGroup sx={{display:"flex", justifyContent:'space-between', padding:'10px 20px'}} variant="outlined" aria-label="outlined button group">
+            <IconButton aria-label="delete" onClick={() => removeMovie(item)}>
+              <DeleteIcon />
+            </IconButton>
             <Link to={`/movies/${item.id}`}>
-              <Button>
-                <ReadMoreIcon color="success" />
+              <Button color="success" variant="contained" >
+                <ReadMoreIcon />
               </Button>
             </Link>
           </ButtonGroup>
