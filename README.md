@@ -24,4 +24,4 @@ To use this app, follow these steps:
 - Start the app using npm start
 - Open your browser and navigate to http://localhost:3000
 - Run server: npm run start:server
-- Open your browser and navigate to http://localhost:8080
+- Open your browser and navigate to http://localhost:5000/movies
