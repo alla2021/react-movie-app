@@ -10,10 +10,10 @@ View details about each movie
 ![1](https://user-images.githubusercontent.com/75502074/234050513-13bed173-74a1-4909-8f74-c695dfe8ad91.png)
 
 ## Technologies Used
-React
-Redux
-JsonServer
-Material UI
+- React
+- Redux
+- JsonServer
+- Material UI
 
 ## How to Use
 To use this app, follow these steps:
