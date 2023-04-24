@@ -26,7 +26,8 @@ const MoviesPage = () => {
         <Container maxWidth="xl">
         <Box sx={{width:"100%", display:'flex', paddingTop:'40px',}}>
             <Box sx={{width:"50%", display:'flex', justifyContent:'center'}}>
-            <img
+            <img  
+              className="poster"
               src={`${movie.img}`}
               alt={`${movie.title}`}
             />

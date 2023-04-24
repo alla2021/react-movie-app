@@ -6,6 +6,7 @@ import ReadMoreIcon from "@mui/icons-material/ReadMore";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonIcon from "@mui/icons-material/Person";
 import { getMoviesData, deleteMovieFromBd } from "../movieService";
+import IconButton from '@mui/material/IconButton';
 import { IMovie } from "../types";
 import { RootState } from "../store/storeTypes";
 import {useSelector, useDispatch} from "react-redux"
@@ -51,13 +52,13 @@ const MovieList = () => {
               {item.duration}
             </span>
           </div>
-          <ButtonGroup variant="outlined" aria-label="outlined button group">
-            <Button onClick={() => removeMovie(item)}>
-              <DeleteIcon color="secondary" />
-            </Button>
+          <ButtonGroup sx={{display:"flex", justifyContent:'space-between', padding:'10px 20px'}} variant="outlined" aria-label="outlined button group">
+            <IconButton aria-label="delete" onClick={() => removeMovie(item)}>
+              <DeleteIcon />
+            </IconButton>
             <Link to={`/movies/${item.id}`}>
-              <Button>
-                <ReadMoreIcon color="success" />
+              <Button color="success" variant="contained" >
+                <ReadMoreIcon />
               </Button>
             </Link>
           </ButtonGroup>
