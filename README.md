@@ -9,7 +9,7 @@ View a list of movies, including their title, director, release year, and rating
 View details about each movie
 ![1](https://user-images.githubusercontent.com/75502074/234050513-13bed173-74a1-4909-8f74-c695dfe8ad91.png)
 
-##Technologies Used
+## Technologies Used
 React
 Redux
 JsonServer
