@@ -1,5 +1,5 @@
 # React Movie App with JSON Server
-This is a simple movie app built with React, using the JSON Server package to simulate a RESTful API for storing and retrieving movie data.
+This is a simple movie app built using React and JSON-Server. Users can view a list of movies and their details, search for specific movies, and add new movies to the database.
 
 ## Features
 The app allows users to:
@@ -24,4 +24,4 @@ Install dependencies using npm install
 Start the app using npm start
 Open your browser and navigate to http://localhost:3000
 Run server: npm run start:server
-Open your browser and navigate to http://localhost:8080
+Open your browser and navigate to  http://localhost:5000/movies
