@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.movie-list {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__item {
+    border: 2px solid black;
+    margin: 0 20px;
+    position: relative;
+    margin-top: 20px;
+    min-width: 300px;
+    min-height: 400px;
+  }
+
+  &__price {
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    text-align: center;
+    background-color: rgb(217, 255, 0);
+    width: 60px;
+    height: 30px;
+  }
+  
+  &__title {
+    font-size: 20px;
+    font-weight: 800;
+    padding:10px;
+  }
+
+  &__info {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.movie-details {
+  display: flex;
+  justify-content: center;
+
+  &__column {
+    width: 50%;
+  }
+
+  img {
+    width: 300px;
+    height: auto;
+  }
+}
+
+img {
+  width: 300px;
+  height: auto;
+}
+
+.form {
+  margin: 20px auto;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form * {
+  margin-bottom: 20px;
+} 

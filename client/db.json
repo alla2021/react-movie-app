@@ -1,0 +1,54 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "The Rum Diary",
+      "director": "Bruce Robinson",
+      "duration": "120",
+      "price": "48.66",
+      "img": "https://kbimages1-a.akamaihd.net/6feeffad-38a1-45ed-a001-7763c87615c0/1200/1200/False/the-rum-diary-a-screenplay.jpg",
+      "featured": false,
+      "description": "The Rum Diary is a 2011 American comedy-drama film written and directed by Bruce Robinson, based on the 1998 novel of the same name by Hunter S. Thompson."
+    },
+    {
+      "id": 882,
+      "title": "Free Guy",
+      "director": "Murray Fahey",
+      "duration": "130",
+      "price": 31.2,
+      "img": "https://lumiere-a.akamaihd.net/v1/images/p_20cs_freeguy_homeent_21930_49e74453.jpeg?region=0%2C0%2C540%2C810",
+      "featured": true,
+      "description": "In the extremely popular video game, Free City, a NPC named Guy learns the true nature of his existence when he meets the girl of his dreams, a human player. This player's interactions with Guy has massive affects on him, the game, and real world as they play it."
+    },
+    {
+      "id": 947,
+      "title": "Brooklyn Nine-Nine",
+      "director": "Michael Schur",
+      "duration": "45",
+      "price": "122",
+      "img": "https://m.media-amazon.com/images/M/MV5BNzVkYWY4NzYtMWFlZi00YzkwLThhZDItZjcxYTU4ZTMzMDZmXkEyXkFqcGdeQXVyODUxOTU0OTg@._V1_FMjpg_UX1000_.jpg",
+      "featured": false,
+      "description": "Comedy series following the exploits of Det. Jake Peralta and his diverse, lovable colleagues as they police the NYPD's 99th Precinct."
+    },
+    {
+      "id": 296.7827449490159,
+      "title": "Wednesday",
+      "director": "Alfred Gough, Miles Millar",
+      "duration": "8",
+      "price": "100",
+      "img": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b2/%D0%A3%D1%8D%D0%BD%D1%81%D0%B4%D0%B5%D0%B9%D0%9F%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/405px-%D0%A3%D1%8D%D0%BD%D1%81%D0%B4%D0%B5%D0%B9%D0%9F%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
+      "featured": false,
+      "description": "Smart, sarcastic and a little dead inside, Wednesday Addams investigates a murder spree while making new friends — and foes — at Nevermore Academy."
+    }
+  ],
+  "users": [
+    {
+      "id": 22,
+      "email": "test",
+      "password": "test",
+      "firstName": "A",
+      "lastName": "A",
+      "isAdmin": false
+    }
+  ]
+}
