@@ -1,4 +1,5 @@
-# React Movie App with JSON Server
+# React Movie App 
+
 This is a simple movie app built with React, using the JSON Server package to simulate a RESTful API for storing and retrieving movie data.
 
 ## Features
