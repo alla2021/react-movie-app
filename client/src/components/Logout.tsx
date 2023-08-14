@@ -2,10 +2,7 @@ import React from "react";
 import { Button } from "@mui/material";
 import { Container, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
-// interface Props {
-//   setAuth: boolean;
-// }
+import Box from "@mui/material/Box";
 
 const Logout = ({ setAuth }) => {
   const navigate = useNavigate();
@@ -19,16 +16,18 @@ const Logout = ({ setAuth }) => {
   return (
     <>
       <Container>
-        <Typography align="center" variant="h1">
-          Log Out?
+        <Typography align="center" variant="h4" sx={{marginBottom:"30px"}}>
+          Do you want Log Out?
         </Typography>
-        <Button
-          variant="outlined"
-          sx={{ width: "150px" }}
-          onClick={logoutHandle}
-        >
-          Yes
-        </Button>
+        <Box sx={{display:"flex", justifyContent:"center"}}>
+          <Button
+              variant="outlined"
+              sx={{ width: "250px", margin:"0 auto" }}
+              onClick={logoutHandle}
+          >
+            Yes
+          </Button>
+        </Box>
       </Container>
     </>
   );

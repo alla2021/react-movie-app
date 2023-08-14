@@ -1,21 +1,23 @@
 import { RootState } from "./storeTypes";
+import {IMovie} from "../types";
 
-let initialState: RootState = {
-  movies: [],
-};
-
-export function moviesReducer(state = initialState, action: any) {
+const initialMoviesState: IMovie[] = [];
+export function moviesReducer(state = initialMoviesState, action: any) {
   switch (action.type) {
     case "Set movie":
-      return { ...state, 
-        movies: action.payload};
+      return action.payload;
     case "Add movie":
-      return state;
+      return [...state, action.payload];
     case "Edit movie":
-      return state;
+      return state.map(movie => {
+        if (movie.id === action.payload.id) {
+          return { ...movie, ...action.payload };
+        } else {
+          return movie;
+        }
+      });
     case "Delete movie":
-      return { ...state,
-        movies: state.movies.filter((item) => item.id !== action.payload)}
+      return state.filter((item) => item.id !== action.payload);
     default:
       return state;
   }

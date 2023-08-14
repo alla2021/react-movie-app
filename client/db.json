@@ -22,13 +22,13 @@
     },
     {
       "id": 947,
-      "title": "Brooklyn Nine-Nine",
-      "director": "Michael Schur",
-      "duration": "45",
+      "title": "Fight Club",
+      "director": "David Fincher",
+      "duration": "145",
       "price": "122",
-      "img": "https://m.media-amazon.com/images/M/MV5BNzVkYWY4NzYtMWFlZi00YzkwLThhZDItZjcxYTU4ZTMzMDZmXkEyXkFqcGdeQXVyODUxOTU0OTg@._V1_FMjpg_UX1000_.jpg",
+      "img": "https://makeout.space/uploads/posts/2016-05/1462286899_fight_club_rvb_72.jpg",
       "featured": false,
-      "description": "Comedy series following the exploits of Det. Jake Peralta and his diverse, lovable colleagues as they police the NYPD's 99th Precinct."
+      "description": "Unhappy with his capitalistic lifestyle, a white-collared insomniac forms an underground fight club with Tyler, a careless soap salesman. Soon, their venture spirals down into something sinister."
     },
     {
       "id": 296.7827449490159,
@@ -39,6 +39,46 @@
       "img": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b2/%D0%A3%D1%8D%D0%BD%D1%81%D0%B4%D0%B5%D0%B9%D0%9F%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/405px-%D0%A3%D1%8D%D0%BD%D1%81%D0%B4%D0%B5%D0%B9%D0%9F%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
       "featured": false,
       "description": "Smart, sarcastic and a little dead inside, Wednesday Addams investigates a murder spree while making new friends — and foes — at Nevermore Academy."
+    },
+    {
+      "id": 438.9959967806092,
+      "title": "Drive",
+      "director": " Nicolas Winding Refn",
+      "duration": "90",
+      "price": "22",
+      "img": "https://professionalmorondotcom.files.wordpress.com/2021/04/drive.jpg",
+      "featured": false,
+      "description": "A mysterious Hollywood action film stuntman gets in trouble with gangsters when he tries to help his neighbor's husband rob a pawn shop while serving as his getaway driver."
+    },
+    {
+      "id": 452.6099198076918,
+      "title": "Interstellar",
+      "director": "Christopher Nolan",
+      "duration": "100",
+      "price": "55",
+      "img": "https://pics.filmaffinity.com/Interstellar-366875261-large.jpg",
+      "featured": false,
+      "description": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans."
+    },
+    {
+      "id": 551.4683348749177,
+      "title": "Tenet",
+      "director": "Christopher Nolan",
+      "duration": "180",
+      "price": "55",
+      "img": "https://m.media-amazon.com/images/M/MV5BNDhiODUyN2UtYTQzZi00YTE0LWJiMWEtYTVlODEyZDQwYzRhXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg",
+      "featured": false,
+      "description": "When a few objects that can be manipulated and used as weapons in the future fall into the wrong hands, a CIA operative, known as the Protagonist, must save the world."
+    },
+    {
+      "id": 892.2407791216971,
+      "title": "Inglourious Basterds",
+      "director": "Quentin Tarantino",
+      "duration": "190",
+      "price": "77",
+      "img": "https://m.media-amazon.com/images/M/MV5BOTJiNDEzOWYtMTVjOC00ZjlmLWE0NGMtZmE1OWVmZDQ2OWJhXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_FMjpg_UX1000_.jpg",
+      "featured": false,
+      "description": "A few Jewish soldiers are on an undercover mission to bring down the Nazi government and put an end to the war. Meanwhile, a woman wants to avenge the death of her family from a German officer."
     }
   ],
   "users": [
@@ -48,6 +88,14 @@
       "password": "test",
       "firstName": "A",
       "lastName": "A",
+      "isAdmin": false
+    },
+    {
+      "id": 32,
+      "email": "test2@gmail.com",
+      "password": "test2",
+      "firstName": "ALLA",
+      "lastName": "HON",
       "isAdmin": false
     }
   ]

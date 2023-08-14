@@ -31,6 +31,7 @@ export default function RegisterForm({ setAuth }) {
       lastName: data.get("lastName"),
       isAdmin: false,
     };
+    console.log('add new user', user)
     addUser(user)
     // setUserInfo([...users, user]);
     // localStorage.setItem("users", JSON.stringify([...users, user]));

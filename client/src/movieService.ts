@@ -1,5 +1,4 @@
 import { movies } from "./data";
-import { IMovie } from "./types";
 
 const URL = "http://localhost:8080/movies";
 

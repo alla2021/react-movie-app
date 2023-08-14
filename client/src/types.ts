@@ -6,7 +6,7 @@ export interface IMovie {
   price: number;
   description: string;
   featured: boolean;
-  img: string
+  img: string;
 }
 
 export interface IUser {

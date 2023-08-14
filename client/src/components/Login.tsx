@@ -16,8 +16,6 @@ import {
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useNavigate } from "react-router-dom";
 import { getUsers } from "../userService";
-import { useTheme } from "@emotion/react";
-// import {IUser, IMovie} from '../types';
 
 const Login = ({ user, setUserInfo, setAuth, isAuth }) => {
   const [login, setLogin] = useState("");
@@ -97,17 +95,12 @@ const Login = ({ user, setUserInfo, setAuth, isAuth }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            {/* <Grid item>
-            This user does not exist
-            </Grid> */}
-
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-            >
-              Sign In
+            >Sign In
             </Button>
             <Grid container>
               <Grid item>

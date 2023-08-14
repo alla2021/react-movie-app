@@ -1,5 +1,5 @@
 import { IUser } from './types';
-const URL = "http://localhost:5000/users";
+const URL = "http://localhost:8080/users";
 
 export async function getUsers(){
   const data = await fetch(URL);

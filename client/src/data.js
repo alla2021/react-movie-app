@@ -56,4 +56,17 @@
   },
 ]
 
-export {movies}
+ const users = [
+     {
+         id:'1',
+         email:'test@test.com',
+         password:'test',
+         firstName:'Alla',
+         lastName:'Hon',
+         isAdmin:'true',
+     },
+ ]
+
+export {movies,
+    users
+}
