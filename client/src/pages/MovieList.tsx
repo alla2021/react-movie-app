@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button, ButtonGroup } from "@mui/material/";
+import { Button, ButtonGroup, IconButton } from "@mui/material/";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ReadMoreIcon from "@mui/icons-material/ReadMore";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonIcon from "@mui/icons-material/Person";
 import { getMoviesData, deleteMovieFromBd } from "../movieService";
-import IconButton from '@mui/material/IconButton';
 import { IMovie } from "../types";
 import { RootState } from "../store/storeTypes";
 import {useSelector, useDispatch} from "react-redux"
+import SearchField from "../components/SearchField";
 
 const MovieList = () => {
-  // const [films, setFilms] = useState<IMovie[]>([]);
   const movies = useSelector((state:RootState) => state.movies)
   const dispatch =  useDispatch();
+  const [searchText, setSearchText] = useState('');
+
 
   useEffect(() => {
     async function getData() {
@@ -24,21 +25,43 @@ const MovieList = () => {
     }
     getData();
   }, [dispatch]);
-  console.log('first, movies', movies)
 
   async function removeMovie(movie) {
     await deleteMovieFromBd(movie.id);
     console.log(movie.id)
     dispatch({type: "Delete movie", payload: movie.id })
-    // setFilms((prevFilms) => {
-    //   return prevFilms.filter((item) => item.id !== movie.id);
-    // });
   }
 
+  const handleSearch = () => {
+    dispatch({ type: "Search movies", payload: searchText });
+  };
+  
+  //Filtering movies based on searchText from storage
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchText.toLowerCase())
+  );
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(event.target.value);
+  };
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
+    <>
+    <SearchField
+      value={searchText}
+      onSearch={handleSearch}
+      onInputChange={handleInputChange}
+      onKeyPress={handleKeyPress}
+    />
     <div className="movie-list">
-      {movies.map((item) => (
-        <div key={item.id} className="movie-list__item">
+    {filteredMovies.map((item) => (
+          <div key={item.id} className="movie-list__item">
           <img src={`${item.img}`} alt={`${item.title}`} />
           <div className="movie-list__price">{item.price}</div>
           <div className="movie-list__title">{item.title}</div>
@@ -65,6 +88,7 @@ const MovieList = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 

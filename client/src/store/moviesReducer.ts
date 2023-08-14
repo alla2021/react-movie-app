@@ -18,7 +18,13 @@ export function moviesReducer(state = initialMoviesState, action: any) {
       });
     case "Delete movie":
       return state.filter((item) => item.id !== action.payload);
-    default:
+    case "Search movies":
+      const searchTerm = action.payload;
+      const filteredMovies = state.filter((movie) =>
+        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      return filteredMovies;
+      default:
       return state;
   }
 }

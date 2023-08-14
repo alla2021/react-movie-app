@@ -5,6 +5,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { getMoviesData } from "../movieService";
 import { Container, Box, Typography, Button } from "@mui/material";
 
+
 const MoviesPage = () => {
   const { id } = useParams();
   const [info, getInfo] = useState([]);

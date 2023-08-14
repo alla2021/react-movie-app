@@ -1,4 +1,4 @@
-import { movies } from "./data";
+import { movies } from "./data1";
 
 const URL = "http://localhost:8080/movies";
 
